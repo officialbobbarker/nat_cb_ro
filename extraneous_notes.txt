@@ -1,0 +1,672 @@
+>>> MODEL TEST RESULTS FOR RANKS 301-400 (2026-05-05, fourth session) <<<
+Verdict: SONNET is the right default for breadth-first batches.
+Quality vs cost ranking on this task: Opus > Sonnet >> Haiku.
+
+Apples-to-apples on the SAME 100-district batch (firm 4-digit year /
+"(by)" upper bound / blank year):
+  Opus on 201-300:    78 / 22 / 0   (gold-standard reference)
+  Sonnet on 301-400:  59 / 36 / 5   (used; appended)
+  Haiku on 301-400:   18 / 39 / 43  (rejected; rolled back)
+
+Sonnet captures ~76% of Opus's firm-year rate and almost-zero blanks.
+Haiku captures ~23% of Opus's firm-year rate with 43% blank — too low.
+
+Method: 4 parallel general-purpose agents per model, 25 rows each,
+returning CSV inline (parent writes staging files). All runs finished
+in ~2-15 min wall-clock with no session-cap issues for either Haiku or
+Sonnet. Sonnet used ~490k total tokens across the 4 agents (~2x Haiku);
+Haiku used ~256k. Both are far below an Opus run on the same batch.
+
+Sonnet quality notes:
+  - Two of the four Sonnet agents (301-325 and 376-400) put the
+    seda_row_count value into BOTH column 12 (seda_rank) and column 13
+    (seda_row_count) — i.e., "1882","1882" instead of "301","1882".
+    Parent Claude had to rewrite the rank column for those two staging
+    files. Worth being explicit about column positions in the prompt
+    if this recurs.
+  - Sonnet agents found earlier years where Haiku gave up — e.g.,
+    Hartford 2016 (Bulkeley HS Chromebook Kickoff), Murrieta Valley
+    2018 take-home initiative, Federal Way 2013, Dayton 2016, South
+    Bend 2018, Blue Valley 2018, Manteca 2015 Going Digital, Charles
+    County 2020 CARES Act launch, Pflugerville 2020 board purchase,
+    Iredell-Statesville 2014 IMPACT grant, Cajon Valley 2014, etc.
+  - Sonnet still missed 5 blanks: Placentia-Yorba Linda CA, Rapides
+    Parish LA, Alhambra Elem AZ, Bossier Parish LA, Evergreen Elem CA.
+    These are likely genuinely-undocumented districts (no public
+    launch announcement) — even Opus might struggle.
+
+ and
+  Ranks 81-200 (see prior NEXT BATCH section, now consumed) are covered.
+  Ranks 301-400 added in fourth session — leaids covered:
+    1201650 Santa Rosa FL, 3501500 Las Cruces NM, 0630660 Placentia-Yorba
+    Linda, 0615240 Glendale Unified CA, 4500720 Aiken SC, 0606810 Cajon
+    Valley, 0609390 Colton, 2201290 Rapides Parish LA, 0629550 Palm Springs,
+    5103240 Richmond City VA, 1803450 Evansville EVSC IN, 0616740 Hayward,
+    3700030 Alamance-Burlington NC, 0629220 Oxnard, 0606390 Panama-Buena
+    Vista, 0600027 Lake Elsinore, 3700012 Pitt NC, 2400270 Charles MD,
+    1301410 Columbia GA, 0623610 Manteca, 4830570 Midland ISD, 2611600
+    Dearborn, 4834830 Pflugerville, 3702310 Iredell-Statesville, 5103640
+    Spotsylvania, 0625130 Modesto City Elem, 4810230 Birdville, 0400600
+    Alhambra Elem AZ, 4502010 Dorchester Two SC, 2725200 Osseo MN,
+    1200810 Hernando FL, 0900450 Bridgeport CT, 4824990 Judson, 4502700
+    Lexington One SC, 3173740 Millard NE, 5309270 Vancouver WA, 0627240
+    Newport-Mesa, 5100270 Arlington VA, 3404590 Elizabeth NJ, 0804350
+    Mesa Co Valley CO, 0634880 San Marcos CA, 0620880 Lancaster CA,
+    4020250 Moore OK, 4824060 Hurst-Euless-Bedford, 0101800 Huntsville AL,
+    0613360 Fairfield-Suisun, 2400660 Washington Co MD, 0629490 Pajaro
+    Valley, 0623340 Madera, 4666270 Sioux Falls SD, 2200270 Bossier
+    Parish, 0639420 Torrance, 3628590 Syracuse, 0641040 Victor Elem CA,
+    0628250 Oceanside, 0901920 Hartford CT, 3904384 Dayton OH, 2007950
+    KCK, 1000200 Christina DE, 0600014 Hesperia, 0605580 Santa Maria-
+    Bonita, 4821150 Goose Creek TX, 2012000 Blue Valley KS, 5507320
+    Kenosha, 0616920 Hemet, 2100510 Boone Co KY, 1810290 South Bend IN,
+    4100023 Hillsboro OR, 2616440 Grand Rapids MI, 0600029 Murrieta
+    Valley, 0629940 Pasadena CA, 3904480 South-Western City OH, 2926850
+    Rockwood MO, 5302820 Federal Way WA, 4843470 Tyler ISD, 0902790 New
+    Haven CT, 5512360 Racine WI, 0408170 Sunnyside AZ, 0632070 Redlands,
+    0403420 Glendale Elem AZ, 0511850 Pulaski Co Special AR, 1810650
+    Hamilton Southeastern IN, 3701140 Davidson Co NC, 2200090 Ascension
+    Parish LA, 5101800 Hampton VA, 4820250 Galena Park, 4010590 Edmond
+    OK, 3704050 Rowan-Salisbury NC, 3704880 Wayne Co NC, 0512660
+    Springdale AR, 1708550 CUSD 300 IL, 4501110 Beaufort SC, 0602430
+    Alvord CA, 0613140 Evergreen Elem CA, 3702010 Harnett NC, 0614730
+    Fullerton CA, 0613890 Folsom-Cordova, 0611460 Downey, 0609070
+    Coachella Valley, 0635970 Saugus Union CA.
+  Ranks 201-300 added in third session — leaids:
+    0601332 Twin Rivers, 2200330 Calcasieu, 2201170 Orleans/NOLA, 2801320
+    DeSoto MS, 4828920 Mansfield, 1908970 Des Moines, 4704530 Williamson
+    TN, 1303870 Muscogee GA, 1301500 Coweta GA, 0402690 Dysart, 0622230
+    Lodi, 4703030 Clarksville-Montgomery TN, 0684500 Irvine, 2802190
+    Jackson MS, 0635130 San Ramon Valley, 4818000 Ector, 1201740 St.
+    Johns FL, 4826130 La Joya, 3700530 Cabarrus, 4501170 Berkeley SC,
+    2200870 Lafayette LA, 3407830 Jersey City, 0625470 Montebello, 0641160
+    Visalia, 4828500 Lubbock, 5102640 Newport News, 5308250 Spokane,
+    5308700 Tacoma, 0629580 Palmdale Elem, 0401680 Cartwright, 0612880
+    Escondido, 1201380 Okaloosa, 0628650 Orange Unified CA, 0633860
+    Saddleback Valley, 0609620 Compton, 0608460 Chino Valley, 1731740
+    Plainfield 202, 1304020 Paulding, 4813050 Carrollton-Farmers Branch,
+    4901140 Washington UT, 0611110 Desert Sands, 4900870 Salt Lake City,
+    0636840 Simi Valley, 1741690 Indian Prairie 204, 0631320 Pomona,
+    0100270 Baldwin AL, 4219170 Pittsburgh, 2010140 Olathe, 1734510
+    Rockford, 2916400 KCMO, 0802490 Boulder Valley, 1200030 Alachua,
+    2634470 Utica MI, 0509000 Little Rock, 0103030 Shelby AL, 0805370
+    St. Vrain Valley, 0610290 Cupertino Union, 4503360 Richland One SC,
+    4704020 Sumner TN, 3412690 Paterson, 2511130 Springfield MA, 5400600
+    Kanawha, 0404230 Kyrene, 2011640 Shawnee Mission, 1600360 Boise,
+    4821420 Grand Prairie, 5304230 Lake Washington, 0803990 Poudre,
+    1302610 Hall GA, 0632370 Rialto, 3700450 Buncombe, 1200090 Bay FL,
+    0407570 Scottsdale, 2732390 Rosemount-Apple Valley-Eagan, 1302880
+    Houston Co GA, 1300420 Bibb, 4816740 Denton, 0100390 Birmingham AL,
+    5303960 Kent WA, 2513230 Worcester, 3703330 New Hanover, 4826580 Lamar
+    CISD, 4826790 Laredo ISD, 3703450 Onslow, 5508520 Madison MMSD, 4829670
+    McAllen, 4400900 Providence, 3631920 Yonkers, 2400210 Carroll Co MD,
+    2201020 Livingston Parish, 3904348 Akron, 3703930 Robeson, 5302700
+    Evergreen WA, 0641190 Vista, 4829850 McKinney, 2928860 Springfield MO,
+    4503390 Richland Two SC, 1301860 Douglas Co GA, 0640150 Tustin, 5103660
+    Stafford VA.
+  Ranks 401-500 added in fifth session — leaids covered:
+    0619260 Jurupa CA, 0407080 Roosevelt Elem AZ, 0616325 Hacienda La
+    Puente CA, 0601620 ABC CA, 4834440 Pearland TX, 4844960 Weslaco TX,
+    2803830 Rankin Co MS, 0627690 Norwalk-La Mirada CA, 5306960 Puyallup
+    WA, 0602310 Alum Rock CA, 0691135 Val Verde CA, 4809670 Beaumont
+    ISD TX, 2201200 Ouachita Parish LA, 1303930 Newton Co GA, 1734740
+    Schaumburg CCSD 54, 4807890 Allen ISD, 5505820 Green Bay WI,
+    2201680 Tangipahoa LA, 4205310 Central Bucks PA, 0609640 Conejo
+    Valley, 1710200 Cicero SD 99, 5302400 Edmonds WA, 5302670 Everett
+    WA, 0408310 Tempe Elem AZ, 5305910 Northshore WA, 0102220 Madison
+    Co AL, 2922800 N Kansas City 74 MO, 0802580 SD 27J CO, 4220040
+    Reading PA, 3904676 Olentangy OH, 2628560 Plymouth-Canton MI,
+    0406300 Phoenix Elem AZ, 3703780 Randolph Co NC, 1001300 Red Clay
+    DE, 4202280 Allentown PA, 4025290 Putnam City OK, 0612960 Etiwanda
+    CA, 0602850 Antioch CA, 0640980 Ventura CA, 4822530 Harlingen TX,
+    0904830 Waterbury CT, 5303750 Issaquah WA, 1302130 Fayette Co GA,
+    1730270 Oswego 308 IL, 2201740 Terrebonne LA, 4808090 Alvin ISD,
+    4817390 Donna ISD, 3703270 Nash-Rocky Mount NC, 2602820 Ann Arbor
+    MI, 4900120 Cache UT, 4503870 York 03 SC (Rock Hill), 2908370 Fort
+    Zumwalt MO, 1200930 Indian River FL, 5303540 Highline WA, 0620250
+    La Mesa-Spring Valley CA, 3904611 Lakota OH, 0626640 Napa Valley,
+    0103390 Tuscaloosa Co AL, 1740070 Valley View 365U IL, 4844280
+    Waco TX, 0629610 Palo Alto, 1730420 Palatine 15 IL, 4814730 Comal
+    ISD, 5300390 Bellevue WA, 4817700 Eagle Mt-Saginaw TX, 5400060
+    Berkeley Co WV, 1741250 Waukegan 60 IL, 1602340 Nampa ID, 2913830
+    Hazelwood MO, 5101830 Hanover Co VA, 0404380 Litchfield Elem AZ,
+    2901000 Columbia 93 MO, 1301830 Dougherty Co GA, 4807440 Abilene
+    ISD, 5300480 Bethel WA, 1201290 Martin FL, 2918300 Lee's Summit MO,
+    1805670 MSD Lawrence Twp IN, 4833180 Northwest ISD TX, 3605280
+    Brentwood UFSD NY, 4811790 Bryan ISD TX, 0200510 Mat-Su AK,
+    0633930 Salinas City Elem CA, 3700690 Catawba Co NC, 2733810 South
+    Washington Co MN, 2731800 Rochester MN, 0634920 San Mateo-Foster
+    City, 2928950 Francis Howell MO, 5306570 Pasco WA, 3500010 Rio
+    Rancho NM, 4900720 Ogden City UT, 0627810 Oak Grove Elem CA,
+    0633600 Roseville City Elem CA, 0635430 Santa Clara CA, 4104740
+    Eugene 4J OR, 4108830 N Clackamas 12 OR, 2400600 St. Mary's MD,
+    0618390 Inglewood CA, 0640740 Vallejo CA, 4005490 Broken Arrow OK.
+
+  Notes for 401-500 dedup:
+    - 4702940 Memphis City SD (defunct after 2013 merger into Shelby
+      County / Memphis-Shelby) was filtered OUT — its leaid still has
+      high mean grade-3 enrollment in the panel because of pre-merger
+      years, but the active district is rank 16 (Memphis-Shelby,
+      4703810). Watch for similar dissolved/merged leaids in future
+      batches.
+
+  Ranks 501-600 added in sixth session — leaids covered:
+    4831040 Mission CISD, 2201560 St. Landry Parish School Board,
+    2503090 Brockton Public Schools, 1801200 Carmel Clay Schools,
+    4800010 Hays CISD, 4503330 Pickens County School District,
+    1727710 Naperville CUSD 203, 1720580 Joliet Public School District 86,
+    3502370 Santa Fe Public Schools,
+    1803870 Gary Community School Corporation, 2923580 Parkway C-2,
+    3700900 Cleveland County Schools, 1812090 Vigo County School Corporation,
+    4101980 Bend-La Pine SD 1, 1812810 M S D Wayne Township,
+    4203570 Bethlehem Area SD, 1908580 Davenport Community School District,
+    0400680 Amphitheater Unified District, 5303930 Kennewick School District,
+    4502130 Florence School District 01, 4900810 Provo School District,
+    4838700 San Angelo ISD, 2609570 Chippewa Valley Schools,
+    0624600 Merced City Elementary, 0623160 Lynwood Unified,
+    0409600 Yuma Elementary School District,
+    1906540 Cedar Rapids Community School District,
+    4502820 Lexington School District 05, 4817640 Duncanville ISD,
+    0607970 Central Unified, 3404500 Edison Township Public Schools,
+    3402640 Camden City Schools, 5103000 Portsmouth City Public Schools,
+    3904701 Hilliard City Schools, 0633750 Rowland Unified,
+    0614370 Franklin-McKinley Elementary, 0603690 Baldwin Park Unified,
+    4901050 Tooele County School District, 0904320 Stamford Public Schools,
+    2507020 Lowell Public Schools, 0503060 Bentonville Schools,
+    2621150 Lansing Public School District, 0629850 Paramount Unified,
+    3003870 Billings Public Schools, 2614520 Flint Community Schools,
+    0600047 Tracy Joint Unified, 1704680 Aurora East USD 131,
+    3416230 Toms River Regional Schools, 3703310 Craven County Schools,
+    2400150 Calvert County Public Schools, 5310110 Yakima School District,
+    1304410 Rockdale County Public Schools,
+    2400690 Wicomico County Public Schools, 4017250 Lawton Public Schools,
+    1804320 School City of Hammond, 2103090 Kenton County Public Schools,
+    2635190 Warren Consolidated Schools, 1737080 Springfield SD 186,
+    0805400 Thompson School District R-2J,
+    0601950 Alisal Union School District, 0511970 Rogers Public Schools,
+    5305430 Mukilteo School District,
+    0200600 Fairbanks North Star Borough SD, 0600153 Alhambra Unified,
+    5307230 Renton School District, 2400240 Cecil County Public Schools,
+    4815910 Crowley ISD, 2619950 Kalamazoo Public Schools,
+    5500390 Appleton Area School District, 1808820 M S D Perry Township,
+    3904504 Westerville City Schools, 4225290 West Chester Area SD,
+    3705020 Wilson County Schools NC, 4844150 Victoria ISD,
+    2801770 Harrison County School District, 1300840 Carroll County Schools,
+    2012260 Topeka Public Schools, 1200270 Citrus County School District,
+    1200240 Charlotte County Public Schools, 0642150 Westminster Elementary,
+    2635160 Walled Lake Consolidated Schools, 4822470 Harlandale ISD,
+    0637380 South Bay Union Elementary, 0506330 Fort Smith Public Schools,
+    4019950 Mid-Del / Midwest City-Del City Schools,
+    0406210 Pendergast Elementary District, 3904702 Dublin City Schools,
+    2200720 Iberia Parish School Board, 2506660 Lawrence Public Schools,
+    1300330 Bartow County School District,
+    3304590 Manchester School District, 4021720 Norman Public Schools,
+    4817730 Eagle Pass ISD, 4030600 Union Public Schools,
+    4845780 Wichita Falls ISD, 5103710 Suffolk City Public Schools,
+    4703150 Murfreesboro City Schools, 2507110 Lynn Public Schools,
+    0600020 Pleasanton Unified, 4704550 Wilson County Schools TN.
+
+
+
+
+
+
+
+==============================================================================
+CONSUMED — ranks 301-400 (added in fourth session, 2026-05-05)
+==============================================================================
+
+301. Santa Rosa County School District, FL (1201650, Milton) — 1882
+302. Las Cruces Public Schools, NM (3501500) — 1876
+303. Placentia-Yorba Linda Unified, CA (0630660) — 1875
+304. Glendale Unified, CA (0615240) — 1871
+305. Aiken County Public Schools, SC (4500720) — 1870
+306. Cajon Valley Union School District, CA (0606810, El Cajon) — 1869
+307. Colton Joint Unified, CA (0609390) — 1860
+308. Rapides Parish School Board, LA (2201290, Alexandria) — 1856
+309. Palm Springs Unified, CA (0629550) — 1846
+310. Richmond City Public Schools, VA (5103240) — 1840
+311. Evansville Vanderburgh School Corporation, IN (1803450) — 1827
+312. Hayward Unified, CA (0616740) — 1818
+313. Alamance-Burlington Schools, NC (3700030) — 1817
+314. Oxnard School District, CA (0629220 — elementary K-8) — 1816
+315. Panama-Buena Vista Union, CA (0606390, Bakersfield) — 1812
+316. Lake Elsinore Unified, CA (0600027) — 1811
+317. Pitt County Schools, NC (3700012, Greenville NC) — 1797
+318. Charles County Public Schools, MD (2400270, La Plata) — 1797
+319. Columbia County School District, GA (1301410, Evans) — 1796
+320. Manteca Unified, CA (0623610) — 1787
+321. Midland ISD, TX (4830570) — 1776
+322. Dearborn Public Schools, MI (2611600) — 1776
+323. Pflugerville ISD, TX (4834830) — 1772
+324. Iredell-Statesville Schools, NC (3702310) — 1769
+325. Spotsylvania County Public Schools, VA (5103640) — 1767
+326. Modesto City Elementary, CA (0625130 — elementary K-6) — 1766
+327. Birdville ISD, TX (4810230, Haltom City/Fort Worth area) — 1762
+328. Alhambra Elementary School District, AZ (0400600, Phoenix) — 1760
+329. Dorchester School District Two, SC (4502010, Summerville) — 1754
+330. Osseo Public Schools (ISD 279), MN (2725200, Maple Grove) — 1753
+331. Hernando County School District, FL (1200810, Brooksville) — 1748
+332. Bridgeport Public Schools, CT (0900450) — 1746
+333. Judson ISD, TX (4824990, Live Oak/San Antonio area) — 1744
+334. Lexington School District One, SC (4502700) — 1744
+335. Millard Public Schools, NE (3173740, Omaha area) — 1739
+336. Vancouver Public Schools, WA (5309270) — 1730
+337. Newport-Mesa Unified, CA (0627240, Costa Mesa) — 1724
+338. Arlington County Public Schools, VA (5100270) — 1720
+339. Elizabeth Public Schools, NJ (3404590) — 1719
+340. Mesa County Valley School District 51, CO (0804350, Grand Junction) — 1719
+341. San Marcos Unified, CA (0634880, San Marcos CA) — 1719
+342. Lancaster School District, CA (0620880 — elementary K-8) — 1716
+343. Moore Public Schools, OK (4020250) — 1709
+344. Hurst-Euless-Bedford ISD, TX (4824060) — 1704
+345. Huntsville City Schools, AL (0101800) — 1691
+346. Fairfield-Suisun Unified, CA (0613360) — 1688
+347. Washington County Public Schools, MD (2400660, Hagerstown) — 1686
+348. Pajaro Valley Unified, CA (0629490, Watsonville) — 1685
+349. Madera Unified, CA (0623340) — 1683
+350. Sioux Falls School District, SD (4666270) — 1681
+351. Bossier Parish Schools, LA (2200270) — 1679
+352. Torrance Unified, CA (0639420) — 1676
+353. Syracuse City School District, NY (3628590) — 1674
+354. Victor Elementary School District, CA (0641040, Victorville) — 1672
+355. Oceanside Unified, CA (0628250) — 1671
+356. Hartford Public Schools, CT (0901920) — 1669
+357. Dayton Public Schools, OH (3904384) — 1667
+358. Kansas City Public Schools, KS (2007950 — KCK, NOT KCMO at rank 250) — 1663
+359. Christina School District, DE (1000200, Newark DE/Wilmington) — 1654
+360. Hesperia Unified, CA (0600014) — 1651
+361. Santa Maria-Bonita School District, CA (0605580 — elementary K-8) — 1640
+362. Goose Creek CISD, TX (4821150, Baytown) — 1636
+363. Blue Valley School District, KS (2012000, Overland Park) — 1634
+364. Kenosha Unified School District, WI (5507320) — 1631
+365. Hemet Unified, CA (0616920) — 1629
+366. Boone County Schools, KY (2100510, Florence/Burlington) — 1616
+367. South Bend Community School Corporation, IN (1810290) — 1615
+368. Hillsboro School District 1J, OR (4100023) — 1613
+369. Grand Rapids Public Schools, MI (2616440) — 1611
+370. Murrieta Valley Unified, CA (0600029) — 1609
+371. Pasadena Unified, CA (0629940 — NOT Pasadena ISD TX at rank 87) — 1602
+372. South-Western City Schools, OH (3904480, Grove City) — 1600
+373. Rockwood R-VI School District, MO (2926850, Eureka MO/STL suburbs) — 1589
+374. Federal Way Public Schools, WA (5302820) — 1587
+375. Tyler ISD, TX (4843470) — 1586
+376. New Haven Public Schools, CT (0902790) — 1583
+377. Racine Unified School District, WI (5512360) — 1582
+378. Sunnyside Unified School District, AZ (0408170, Tucson) — 1582
+379. Redlands Unified, CA (0632070) — 1581
+380. Glendale Elementary School District, AZ (0403420, Phoenix area — NOT
+     Glendale Unified CA at rank 304) — 1576
+381. Pulaski County Special School District, AR (0511850) — 1575
+382. Hamilton Southeastern Schools, IN (1810650, Fishers) — 1571
+383. Davidson County Schools, NC (3701140, Lexington NC — NOT Metro
+     Nashville/Davidson at rank 43) — 1561
+384. Ascension Parish Public Schools, LA (2200090, Donaldsonville/Gonzales) — 1561
+385. Hampton City Public Schools, VA (5101800) — 1559
+386. Galena Park ISD, TX (4820250, Houston area) — 1559
+387. Edmond Public Schools, OK (4010590) — 1559
+388. Rowan-Salisbury Schools, NC (3704050) — 1558
+389. Wayne County Public Schools, NC (3704880, Goldsboro) — 1557
+390. Springdale Public Schools, AR (0512660) — 1552
+391. Community Unit School District 300, IL (1708550, Algonquin/Carpentersville) — 1546
+392. Beaufort County School District, SC (4501110) — 1543
+393. Alvord Unified, CA (0602430, Riverside) — 1539
+394. Evergreen Elementary School District, CA (0613140, San Jose) — 1537
+395. Harnett County Schools, NC (3702010, Lillington) — 1531
+396. Fullerton School District, CA (0614730 — elementary K-8) — 1529
+397. Folsom-Cordova Unified, CA (0613890) — 1526
+398. Downey Unified, CA (0611460) — 1525
+399. Coachella Valley Unified, CA (0609070) — 1525
+400. Saugus Union School District, CA (0635970, Santa Clarita — elementary K-6) — 1522
+
+==============================================================================
+CONSUMED — ranks 401-500 (added in fifth session, 2026-05-05)
+==============================================================================
+
+401. Jurupa Unified, CA (0619260, Mira Loma) — 1519
+402. Roosevelt Elementary School District, AZ (0407080, Phoenix K-8) — 1519
+403. Hacienda La Puente Unified, CA (0616325) — 1513
+404. ABC Unified School District, CA (0601620, Cerritos/Artesia) — 1511
+405. Pearland ISD, TX (4834440) — 1510
+406. Weslaco ISD, TX (4844960, Rio Grande Valley) — 1509
+407. Rankin County School District, MS (2803830, Brandon) — 1509
+408. Norwalk-La Mirada Unified, CA (0627690) — 1506
+409. Puyallup School District, WA (5306960) — 1504
+410. Alum Rock Union Elementary, CA (0602310, San Jose K-8) — 1504
+411. Val Verde Unified, CA (0691135, Perris) — 1503
+412. Beaumont ISD, TX (4809670 — TX Beaumont, NOT Beaumont USD CA) — 1500
+413. Ouachita Parish School Board, LA (2201200, Monroe) — 1500
+414. Newton County School System, GA (1303930, Covington GA) — 1499
+415. Schaumburg CCSD 54, IL (1734740 — elementary K-8) — 1492
+416. Allen ISD, TX (4807890) — 1489
+417. Green Bay Area Public School District, WI (5505820) — 1487
+418. Tangipahoa Parish School System, LA (2201680, Amite/Hammond) — 1487
+419. Central Bucks School District, PA (4205310, Doylestown) — 1485
+420. Conejo Valley Unified, CA (0609640, Thousand Oaks) — 1485
+421. Cicero SD 99, IL (1710200 — elementary) — 1482
+422. Edmonds School District, WA (5302400, Edmonds/Lynnwood) — 1477
+423. Everett School District, WA (5302670) — 1473
+424. Tempe School District, AZ (0408310 — elementary K-8) — 1459
+425. Northshore School District, WA (5305910, Bothell/Woodinville) — 1457
+426. Madison County Schools, AL (0102220 — NOT Madison City AL) — 1457
+427. North Kansas City Schools 74, MO (2922800) — 1449
+428. School District 27J, CO (0802580, Brighton) — 1449
+429. Reading SD, PA (4220040) — 1445
+430. Olentangy Local SD, OH (3904676, Lewis Center) — 1442
+431. Plymouth-Canton Community Schools, MI (2628560) — 1436
+432. Phoenix Elementary District, AZ (0406300, downtown Phoenix K-8) — 1432
+433. Randolph County Schools, NC (3703780, Asheboro) — 1428
+434. Red Clay Consolidated School District, DE (1001300, Wilmington) — 1425
+435. Allentown City SD, PA (4202280) — 1424
+436. Putnam City Schools, OK (4025290, OKC NW) — 1423
+437. Etiwanda School District, CA (0612960, Rancho Cucamonga K-8) — 1421
+438. Antioch Unified, CA (0602850) — 1419
+439. Ventura Unified, CA (0640980) — 1412
+440. Harlingen CISD, TX (4822530, Rio Grande Valley) — 1408
+441. Waterbury School District, CT (0904830) — 1406
+442. Issaquah School District, WA (5303750) — 1405
+443. Fayette County Schools, GA (1302130, Fayetteville GA — NOT Fayette KY at #144) — 1397
+444. Oswego CUSD 308, IL (1730270) — 1396
+445. Terrebonne Parish School District, LA (2201740, Houma) — 1391
+446. Alvin ISD, TX (4808090, Houston south suburb) — 1390
+447. Donna ISD, TX (4817390, Rio Grande Valley) — 1388
+448. Nash-Rocky Mount Public Schools, NC (3703270) — 1388
+449. Ann Arbor Public Schools, MI (2602820) — 1382
+450. Cache County School District, UT (4900120, Logan) — 1376
+451. York School District 03, SC (4503870, Rock Hill — NOT York Co PA) — 1375
+452. Fort Zumwalt R-II, MO (2908370, O'Fallon MO) — 1375
+453. Indian River County School District, FL (1200930, Vero Beach) — 1374
+454. Highline Public Schools, WA (5303540, Burien/Des Moines) — 1372
+455. La Mesa-Spring Valley School District, CA (0620250 — elementary K-8) — 1368
+456. Lakota Local Schools, OH (3904611, Liberty Twp / Cincinnati north) — 1362
+457. Napa Valley Unified, CA (0626640) — 1358
+458. Tuscaloosa County Schools, AL (0103390 — NOT Tuscaloosa City) — 1357
+459. Valley View CUSD 365U, IL (1740070, Romeoville/Bolingbrook) — 1351
+460. Waco ISD, TX (4844280) — 1350
+461. Palo Alto Unified, CA (0629610) — 1350
+462. Palatine CCSD 15, IL (1730420 — elementary K-8) — 1346
+463. Comal ISD, TX (4814730, New Braunfels) — 1340
+464. Bellevue School District, WA (5300390) — 1335
+465. Eagle Mountain-Saginaw ISD, TX (4817700, Fort Worth area) — 1335
+466. Berkeley County Schools, WV (5400060, Martinsburg — NOT Berkeley SC at #226) — 1332
+467. Waukegan CUSD 60, IL (1741250) — 1332
+468. Nampa School District, ID (1602340) — 1331
+469. Hazelwood, MO (2913830, Florissant — STL north county) — 1330
+470. Hanover County Public Schools, VA (5101830, Ashland/Mechanicsville) — 1327
+471. Litchfield Elementary District, AZ (0404380, Phoenix west K-8) — 1327
+472. Columbia Public Schools 93, MO (2901000) — 1326
+473. Dougherty County School System, GA (1301830, Albany) — 1324
+474. Abilene ISD, TX (4807440) — 1321
+475. Bethel School District, WA (5300480, Spanaway/Pierce Co — NOT Bethel OR/CT) — 1316
+476. Martin County School District, FL (1201290, Stuart) — 1303
+477. Lee's Summit R-VII, MO (2918300, KC east suburb) — 1301
+478. M S D Lawrence Township, IN (1805670, Indianapolis east) — 1301
+479. Northwest ISD, TX (4833180, Justin TX — Fort Worth NW) — 1295
+480. Brentwood Union Free School District, NY (3605280, Long Island) — 1294
+481. Bryan ISD, TX (4811790, College Station area) — 1292
+482. Matanuska-Susitna Borough School District, AK (0200510, Palmer/Wasilla) — 1290
+483. Salinas City Elementary, CA (0633930 — K-6, NOT Salinas Union HS) — 1289
+484. Catawba County Schools, NC (3700690, Newton — NOT Hickory City) — 1287
+485. South Washington County School District, MN (2733810, Cottage Grove) — 1286
+486. Rochester Public School District, MN (2731800 — NOT Rochester NY at #190) — 1286
+487. San Mateo-Foster City School District, CA (0634920 — elementary K-8) — 1284
+488. Francis Howell R-III, MO (2928950, St. Charles) — 1279
+489. Pasco School District, WA (5306570 — NOT Pasco County FL at #54) — 1274
+490. Rio Rancho Public Schools, NM (3500010, ABQ suburb) — 1274
+491. Ogden City School District, UT (4900720 — NOT Weber Co at #194) — 1271
+492. Oak Grove Elementary School District, CA (0627810, San Jose K-8) — 1270
+493. Roseville City Elementary, CA (0633600 — elementary K-8) — 1267
+494. Santa Clara Unified, CA (0635430) — 1262
+495. Eugene SD 4J, OR (4104740) — 1261
+496. North Clackamas SD 12, OR (4108830, Milwaukie) — 1260
+497. St. Mary's County Public Schools, MD (2400600, Leonardtown) — 1260
+498. Inglewood Unified, CA (0618390, LA south) — 1257
+499. Vallejo City Unified, CA (0640740) — 1254
+500. Broken Arrow Public Schools, OK (4005490, Tulsa east suburb) — 1241
+
+
+==============================================================================
+CONSUMED — ranks 601-700 leaid list (added in seventh session, 2026-05-06)
+==============================================================================
+  3501080 Gadsden Independent NM, 2915480 Independence 30 MO,
+  0600017 Apple Valley Unified CA, 3625350 Sachem Central NY,
+  2200900 Lafourche Parish LA, 2629940 Rochester Community MI,
+  3702100 Henderson County NC, 0624540 Menifee Union Elem CA,
+  5305850 North Thurston WA, 2102490 Hardin County KY,
+  0643470 Yuba City Unified CA, 5301410 Clover Park WA,
+  2931650 Wentzville R-IV MO, 4703780 Sevier County TN,
+  4659820 Rapid City Area 51-4 SD, 2105730 Warren County KY,
+  1728620 McLean County USD 5 IL, 0608370 Chico Unified CA,
+  1731230 Peoria SD 150 IL, 2621840 Livonia MI,
+  2508430 New Bedford MA, 5601980 Laramie County 1 WY,
+  4702580 Jackson-Madison TN, 2600015 Wayne-Westland MI,
+  4837650 Rockwall ISD TX, 2905310 Blue Springs R-IV MO,
+  1305700 Whitfield County GA, 5300300 Auburn WA,
+  5100120 Alexandria City VA, 3703990 Rockingham County NC,
+  0627180 Newhall Elem CA, 4846530 Wylie ISD TX,
+  1926400 Sioux City IA, 3412540 Passaic City NJ,
+  0639870 Tulare City Elem CA, 0606450 Burbank Unified CA,
+  1602640 Pocatello ID, 3700420 Brunswick County NC,
+  5103330 Roanoke County VA, 0638670 Sylvan Union Elem CA,
+  4209300 Erie City SD PA, 1305390 Walton County GA,
+  5103300 Roanoke City VA, 0628140 Ocean View CA (Huntington Beach),
+  3416290 Trenton NJ, 1300290 Barrow County GA,
+  0622110 Livermore Valley CA, 0632130 Redwood City Elem CA,
+  1803270 Elkhart Community IN, 5101470 Frederick County VA,
+  1301170 Clarke County GA, 0608130 Ceres Unified CA,
+  3702680 Lincoln County NC, 3703090 Moore County NC,
+  0604440 Bellflower Unified CA, 0404630 Marana Unified AZ,
+  0100007 Hoover City AL, 0600158 Turlock Unified CA,
+  5100090 Albemarle County VA, 1302400 Glynn County GA,
+  1000230 Colonial DE, 1737170 St Charles CUSD 303 IL,
+  3700480 Burke County NC, 1200540 Flagler FL,
+  4702760 Maury County TN, 4108040 Medford SD 549C OR,
+  4840950 Southwest ISD TX, 2711370 Elk River MN,
+  2100750 Bullitt County KY, 0611850 East Whittier City Elem CA,
+  0616050 Greenfield Union CA, 4818150 Edgewood ISD TX,
+  5401620 Wood County WV, 4112240 Tigard-Tualatin SD 23J OR,
+  5301110 Central Valley WA, 1808910 MSD Pike Township IN,
+  4704080 Tipton County TN, 2731780 Robbinsdale MN,
+  1914700 Iowa City IA, 2508610 Newton MA,
+  1742180 CUSD 200 IL (Wheaton), 3418120 Woodbridge Township NJ,
+  0600013 Rocklin Unified CA, 0402860 Flagstaff Unified AZ,
+  0626910 New Haven Unified CA (Union City), 1704710 Aurora West USD 129 IL,
+  4811190 Brazosport ISD TX, 4821660 Grapevine-Colleyville ISD TX,
+  4500900 Anderson 05 SC, 0617850 Hueneme Elem CA,
+  5300380 Battle Ground WA, 5604510 Natrona County 1 WY,
+  4110520 Reynolds SD 7 OR, 5400180 Cabell County WV,
+  4217280 North Penn SD PA, 3700580 Caldwell County NC,
+  1811340 Tippecanoe SC IN, 0625530 Monterey Peninsula CA,
+  0616680 Hawthorne CA, 0605910 Brentwood Union Elem CA.
+
+==============================================================================
+NOTABLE EARLY ADOPTERS (pre-2014 firm-year launches across all batches)
+==============================================================================
+Top 30 (ranks 1-30): Mooresville NC and several others — see CSV directly;
+top 30 was populated before this guide and is well-documented in-row.
+
+Ranks 31-200 (sessions 1-2):
+  - Boston #69 — 2014, Chesterfield #65 — 2014, Santa Ana — 2014,
+    Jordan UT — 2013, Garland — 2016, Greenville SC — 2016, Austin
+    ISD — 2017, Aldine — 2017, El Paso ISD — 2018, Atlanta — 2019,
+    Loudoun — 2018.
+
+Ranks 201-300 (third session):
+  - Richland Two SC #297 — 2000 (first 1:1 classroom; full Chromebook 2013)
+  - Kent WA #279 — 2005 (Tech Academy MS; ES 1:1 by 2013)
+  - Birmingham AL #278 — 2008 (One Laptop Per Child / XO laptops, gr1-5)
+  - Poudre R-1 CO #268 — 2010 (voter-approved bond/mill levy)
+  - McAllen TX #286 — 2011 (one of largest US 1:1 in 2011; iPads)
+  - Mansfield TX #205 — 2012 (PowerUp! iPad MS/HS, Apple Distinguished)
+  - Baldwin AL #246 — 2012 (Digital Renaissance MacBook K-12; later CB)
+  - Onslow NC #284 — 2012 (phased Dell laptop K-12 over 4 years)
+  - Lake Washington WA #267 — 2012 (secondary 1:1 by 2012)
+  - St. Vrain Valley CO #256 — 2012 (mill-levy iPad gr 7-12)
+  - Boise ID #265 — 2013 (Idaho Students Come First plan)
+  - Tustin CA #299 — 2013 (Measure S K-12)
+  - Compton CA #235 — 2014 (Apple ConnectED, 5 schools)
+  - Vista CA #294 — 2014 (Personalized Learning, 6 pilot schools)
+  - McKinney TX #295 — 2014 (gr9 MacBook 1:World)
+  - Boulder Valley CO #251 — 2014 (1:Web Centaurus HS pilot)
+  - KCMO #250 — 2014 (district-wide, PK-4 iPad + 5-12 Chromebook)
+  - Desert Sands CA #241 — 2014 (Connect: One to World, 27,701 CBs)
+  - Kanawha WV #262 — 2014 (Learning 20/20, gr 4-12 iPads)
+  - Shawnee Mission KS #264 — 2014 ($20M Apple, MacBooks HS + iPads)
+  - Little Rock AR #254 — 2014 (gr 4-5 pilot, take-home)
+  - Cupertino Union CA #257 — 2014 (gr 6-8 iPad)
+
+Ranks 301-400 (fourth session, Sonnet — pre-2014 standouts):
+  - Federal Way WA #374 — 2013
+  - Iredell-Statesville NC #324 — 2014 (IMPACT grant)
+  - Cajon Valley CA #306 — 2014
+  - Manteca CA #320 — 2015 Going Digital
+  - Hartford CT #356 — 2016 (Bulkeley HS Chromebook Kickoff)
+  - Dayton OH #357 — 2016
+  - South Bend IN #367 — 2018
+  - Murrieta Valley CA #370 — 2018 (take-home initiative)
+  - Blue Valley KS #363 — 2018
+
+Ranks 401-500 (fifth session, Sonnet):
+  - ~32 pre-pandemic firm years; see CSV.
+  - Notable late adopters: Comal ISD TX #463 — 2024-25 SY,
+    Northwest ISD TX #479 — fall 2025 gr 6-12 only, Francis Howell
+    R-III MO #488 — fall 2025 first district-wide secondary 1:1.
+
+Ranks 601-700 (seventh session, Sonnet):
+  - Roanoke County VA #639 — 2002 (Hidden Valley HS Dell laptop pilot,
+    expanded to all 5 HS over 11 years — earliest 1:1 pilot found
+    anywhere in the project)
+  - Wentzville R-IV MO #613 — 2011 (Access Initiative, Google
+    Reference District)
+  - Tippecanoe SC IN #697 — 2012 (phased CB gr 6-12)
+  - Monterey Peninsula CA #698 — 2012 (by) — flagged Partial
+  - Grapevine-Colleyville TX #688 — 2012 (by) — LEAD 2021 ES iPad 1:1
+  - Rockingham County NC #630 — 2012 (4300 HS CBs)
+  - Anderson 05 SC #689 — 2013 (pilot 2012, take-home Oct 2013)
+  - Passaic City NJ #634 — Jan 2013 (5000 Samsung CBs to gr 7-12)
+  - Pocatello ID #637 — 2013 (Idaho Students Come First)
+  - Flagler FL #664 — Sept 2013 (HS MacBook Air, gr 5-6 iPad)
+  - Moore County NC #654 — March 2014
+  - Hoover City AL #657 — 2014 (CBs to all 10 ES Nov 2014)
+  - Brazosport ISD TX #687 — 2015 (EmpowerED)
+  - East Whittier CA #670 — 2015 (2:1 Tech Learning)
+  - Marana AZ #656 — 2015 (by) (ENGAGE!, 2014 bond)
+  - Bullitt County KY #669 — Aug 2016 (Access 24)
+  - North Penn PA #695 — Fall 2016 (gr 6-9)
+  - Battle Ground WA #691 — Jan 2017 (gr 7 pilot)
+  - Auburn WA #628 — 2017 ($22M tech levy 2014)
+  - Iowa City IA #679 — Fall 2017 (gr 9-12)
+  - Walton County GA #642 — 2017 (eSMART)
+  - Hardin County KY #610 — Aug 2018
+  - Woodbridge NJ #682 — Sept 2018 (Lenovo 300e)
+  - Henderson County NC #607 — Aug 2019
+  - Newton MA #680 — Fall 2019 (gr 9-12 Newton North/South)
+  - Wylie ISD TX #632 — 2019 (2014 pilot first)
+
+==============================================================================
+SESSION-BY-SESSION DETAIL LOG (full distributions, failure modes)
+==============================================================================
+2026-04-30 — Session 1: top 30 districts populated with rich notes +
+sources (existing session work, before this resume guide).
+
+2026-05-01 — Session 2 (first attempt): ranks 31-80 added in 2 batches
+(subagent assistance for 59-80). Mix of pre-pandemic launches and
+COVID-era. Late launches: Volusia 2021, Fort Bend 2024 EquippED, Katy
+2024 CLASS. Spawned 4 parallel agents for ranks 81-200; all hit
+Anthropic usage rate limit before appending. CSV unchanged at 80 rows.
+
+2026-05-01 — Session 2 (continued): re-spawned 4 parallel general-
+purpose agents, each writing to its own staging_{N1-N2}.csv to avoid
+concurrent CSV write contention. All 4 succeeded; 120 rows added.
+File now sorted 1-200 with all ranks present and no duplicates.
+
+2026-05-05 — Session 3: ranks 201-300 via 4 parallel general-purpose
+agents. Agent file-write tools were DENIED permission; agents fell
+back to returning full CSV inline in summaries and parent Claude wrote
+the staging files. Final state 300 rows (13-col format).
+Distribution:
+  Pre-pandemic launches:                  ~37-40
+  COVID-era 2020 (firm year):             ~28
+  "2020 (by)" upper bound:                ~18
+  "2014/2015/2018/2019 (by)" upper bound: ~5
+  Post-2020 (2021-2024):                   ~3
+  "Partial" (in-class only):               ~1 (Washington UT)
+Known issues:
+  - Some agent outputs had INCONSISTENT QUOTING (e.g., `,Yes (phased),`
+    instead of `,"Yes (phased)",`); rank 251-275 in particular.
+    Parses correctly because no field contained an unquoted comma.
+  - Stafford County VA (rank 300): transcription typo "ESOL classuna"
+    introduced when copy-pasting from agent summary; fixed in place.
+  - Earlier-session unquoted-comma fixes: Baltimore City, Volusia
+    County, Buffalo Public, Clay County FL.
+
+2026-05-05 — Session 4 (first attempt): 4 parallel agents with
+`model: "haiku"` for ranks 301-400. Result: 18 firm / 39 upper-bound
+/ 43 blank. Mike judged unacceptable. Output saved as
+national_chromebook_rollouts_haiku_400rows.bak.csv; ROLLED BACK to 300.
+
+2026-05-05 — Session 4 (second attempt): re-ran 4 batches with
+`model: "sonnet"`. Quality jumped to 59 firm / 36 upper-bound / 5
+blank. Final state 400 rows. Failure modes:
+  - 2 of 4 agents put seda_row_count into BOTH the seda_rank and
+    seda_row_count columns ("1882","1882" instead of "301","1882").
+    Parent rewrote rank column.
+  - 5 districts came back with no year (Placentia-Yorba Linda, Rapides
+    Parish, Alhambra Elem, Bossier Parish, Evergreen Elem). May be
+    genuinely undocumented.
+Distribution: pre-pandemic ~22 / COVID-2020 ~28 / post-2020 ~9 /
+"(by)" ~36 / blank 5.
+
+2026-05-05 — Session 4 (post-300-rows): added two tracking columns
+(web_search, fb_search). Backfilled web_search=1 for all 300 rows;
+fb_search=1 for exactly 4 rows (NYC, LAUSD, Chicago, Hillsborough).
+Backup of 13-col version: national_chromebook_rollouts_pre_searchcols.bak.csv.
+
+2026-05-05 — Session 5: ranks 401-500 via 4 parallel Sonnet agents,
+25 districts each. All 4 wrote staging files directly (writes GRANTED).
+Final state 500 rows. Distribution: pre-pandemic ~32 / COVID-2020 ~14
+/ post-2020 ~5 / "(by)" ~42 / blank 3. Failure mode: 1 agent
+(rank 451-475) inserted EXTRA column at position 9 for one row
+(Dougherty Co GA #473), duplicating device_type. Parent removed
+duplicate. NO seda_rank/seda_row_count swap this session.
+
+2026-05-05 — Session 6: ranks 501-600 via 4 parallel Sonnet agents
+(see leaid list above for batch). Final state 600 rows.
+
+2026-05-06 — Session 7: ranks 601-700 via 4 parallel Sonnet agents
+(601-625, 626-650, 651-675, 676-700). All 4 had Write tool DENIED
+(regression vs session 5); returned full CSV content inline; parent
+wrote staging files. Distribution: pre-pandemic ~24 / COVID-2020 ~18
+/ post-2020 ~4 / "(by)" ~50 / blank 2 / Partial 2. Failure modes:
+  - Write denied for all 4 agents; inline fallback worked.
+  - No seda_rank/seda_row_count swap.
+  - No 16-column duplicated-device-type rows.
+  - 2 blank-year rows (Tipton TN #677, CUSD 200 IL #681).
+Backup: national_chromebook_rollouts_600rows.bak.csv.
+
+==============================================================================
+HISTORICAL BACKUP CHAIN
+==============================================================================
+national_chromebook_rollouts.bak.csv          — 30-row pre-session snapshot
+national_chromebook_rollouts_200rows.bak.csv  — 200-row snapshot (after
+                                                ranks 81-200 expansion)
+national_chromebook_rollouts_300_pre.bak.csv  — 200-row snapshot taken
+                                                immediately before the
+                                                300-row append
+national_chromebook_rollouts_pre_searchcols.bak.csv — 300-row snapshot
+                                                BEFORE web_search/fb_search
+                                                columns added (13-col)
+national_chromebook_rollouts_300rows.bak.csv  — 300-row snapshot taken
+                                                immediately before the
+                                                301-400 append (15-col)
+national_chromebook_rollouts_haiku_400rows.bak.csv — 400-row Haiku output
+                                                (rejected; rolled back)
+national_chromebook_rollouts_400rows.bak.csv  — 400-row snapshot taken
+                                                immediately before the
+                                                401-500 append
+national_chromebook_rollouts_500rows.bak.csv  — 500-row snapshot taken
+                                                immediately before the
+                                                501-600 append
+national_chromebook_rollouts_600rows.bak.csv  — 600-row snapshot taken
+                                                immediately before the
+                                                601-700 append

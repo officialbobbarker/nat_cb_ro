@@ -1,0 +1,153 @@
+==============================================================================
+NATIONAL CHROMEBOOK ROLLOUTS — RESEARCH STRATEGY (breadth phase, web only)
+==============================================================================
+Trimmed copy for the remote cron routine. The full version (which also
+covers the Tier 1 Facebook profile-search method, deferred to phase 2)
+lives at tech_in_schools/research_strategy.txt.
+
+PURPOSE
+Identify when each US public school district adopted 1:1 student devices
+(Chromebooks, iPads, laptops). The hypothesis: the shift from pen-and-
+paper to per-student device use during class is an inflection point in
+education strategy, and we want to capture WHEN it happened for as many
+of the largest districts as possible.
+
+In this breadth phase, work is web-search-first. Facebook profile-search
+work is intentionally deferred to a phase-2 follow-up pass; do not
+attempt it.
+
+==============================================================================
+WHAT TO RECORD PER DISTRICT (CSV columns recap)
+==============================================================================
+- year_started:    Calendar year the 1:1 program began (or upper bound)
+- month_started:   Month of rollout if traceable (often back-to-school)
+- one_to_one:      Yes / Yes (phased) / Yes (likely) / Partial
+- grade_levels:    Which grades got devices (often phased)
+- device_type:     Chromebook / iPad / laptop / mixed
+- notes:           Caveats; "(by)" tag if we have only first-evidence
+- source_url:      Primary source
+- source_2:        Backup/secondary
+- (other columns are populated mechanically from the batch list — see
+  REMOTE_INSTRUCTIONS.md)
+
+NOTES CONVENTION
+- "(by)" upper bound = our earliest dated evidence; rollout may be
+  earlier. Use "2020 (by)" if a 2020 source mentions an existing program
+  but no earlier launch year is documented.
+- Dated newspaper articles, board agendas, vendor case studies, and
+  district press releases are the strongest sources. Tech-page snapshots
+  on the district website (often undated) are weaker — use only when no
+  dated source surfaces.
+- Always prefer the EARLIEST dated source you can find. Don't stop at
+  the first hit — search a couple more queries to confirm.
+
+PROJECT SCOPE
+A row counts as a 1:1 rollout if:
+- The district issued (or BYOD-authorized) one device per student for
+  REGULAR CLASSROOM LEARNING, AND
+- Coverage was broad enough to be meaningfully called 1:1 — at minimum,
+  one full grade band (HS, MS, or ES) or a defined phased plan that
+  reached most students within a few years.
+
+BYOD programs DO count if the district adopted them as a classroom-
+learning policy (e.g., a board-approved BYOD program in 2014 with
+matching tech infrastructure). If a district only ran an opt-in BYOD
+without integrating it into instruction, mark `Partial`.
+
+Pure cart-based / shared-device programs do NOT count as 1:1. Mark
+`Partial` and explain in notes.
+
+==============================================================================
+SEARCH METHOD (web only)
+==============================================================================
+Use WebSearch as primary tool. WebFetch is allowed when a candidate
+source needs date confirmation but should not be the default.
+
+A. STANDARD QUERY ROTATION (1-3 queries per district usually suffices)
+Run in this order, stop when you have a clear dated source:
+
+   1. "<district name>" 1:1 chromebook laptop initiative year history
+   2. "<district name>" student device rollout begin launched
+   3. "<district name>" chromebook distribution 2014 2015 2016 2017 2018 2019 2020
+   4. "<district name>" "<city>" 1:1 device program announcement
+   5. "<district name>" board approves chromebook iPad purchase
+   6. "<district name>" technology levy bond device
+
+For phrases that need exact match, quote them. State and city
+disambiguation matters when district names collide (e.g., "Springfield"
+in MO vs MA vs IL).
+
+B. HIGH-VALUE SOURCE TYPES (in rough preference order)
+- Local newspaper articles with explicit launch dates
+- District press releases / news pages with dated posts
+- Vendor case studies (Google for Education, Lenovo, Dell, Apple) — these
+  often name a year and grade band
+- School board meeting minutes / agendas (very precisely dated)
+- Wayback Machine snapshots of the district's tech / 1:1 page (the
+  earliest snapshot mentioning Chromebooks/devices is a usable upper
+  bound)
+- EdTech publications: edtechmagazine.com/k12, thejournal.com,
+  edsurge.com, k12dive.com
+- Customer story pages: edu.google.com case studies, instructure.com
+  case studies, classlink case studies
+
+C. WAYBACK MACHINE LOOKUP
+For "<district domain>/technology" or "/1to1":
+   https://web.archive.org/web/*/<district-domain>/technology
+The earliest snapshot mentioning Chromebooks / devices / 1:1 sets the
+upper bound (`<year> (by)` notation). Don't claim a firm year from a
+Wayback snapshot — those are upper bounds.
+
+D. WHEN A QUERY SURFACES A FACEBOOK POST URL
+A regular `facebook.com/<page>/posts/<id>` URL surfaced by a web search
+counts as a regular web-search hit (use it freely, cite it). Do NOT
+proactively open the district's `facebook.com/profile/<id>/search/` page
+and run searches there — that's the deferred phase-2 method.
+
+==============================================================================
+INTERPRETING POST / ARTICLE CONTENT
+==============================================================================
+A search hit for "device" or "chromebook" doesn't always mean the source
+is about regular learning device use. Filter out false positives:
+
+FALSE POSITIVES (do NOT count):
+- Auction listings or fundraiser device giveaways
+- Generic "use your device" instructions for one-off online forms
+- Tech department job postings
+- Sports / extracurricular device mentions
+- "Device-free" assemblies or pledges
+- Library device-checkout for loan-out (one-off)
+
+TRUE POSITIVES (count for our research):
+- Distribution / pickup of student devices
+- 1:1 initiative announcements
+- BYOD program announcements integrated with classroom instruction
+- Acceptable Use Policy or Device Insurance for student devices
+- Chromebook / iPad / laptop return / collection from students
+- Specific grade-level rollouts ("9th graders received Chromebooks")
+- Board approvals of "1:1 device" purchases or BYOD policies
+- Tech-bond / technology-levy voter approvals tied to a 1:1 plan
+
+When sources conflict on the year, prefer the earliest dated source
+that clearly references rollout / distribution. Move on to the next
+candidate if the earliest hit is unrelated.
+
+==============================================================================
+DATA HYGIENE RULES
+==============================================================================
+1. NEVER overwrite a row that already has data. Only append to the CSV.
+2. Use the EXACT district name from the batch list (which is derived
+   from SEDA leaname with light title-casing).
+3. Years are 4-digit integers; "2020 (by)" / "2014 (by)" notation for
+   upper bounds that cannot be pinned more precisely.
+4. Quote source URLs exactly. Don't paraphrase or shorten.
+5. For `Yes` in one_to_one, require explicit evidence of a take-home or
+   per-student device program. Classroom-cart-only = `Partial`.
+6. Never invent a numerical year just to fill the cell. Blank is a
+   valid answer when the launch is genuinely undocumented.
+7. The leaid column is populated mechanically — copy verbatim from the
+   batch list and do not edit.
+
+==============================================================================
+END OF STRATEGY FILE (breadth-phase trimmed copy)
+==============================================================================
