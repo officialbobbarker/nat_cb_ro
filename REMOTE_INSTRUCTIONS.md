@@ -233,6 +233,58 @@ Final report (terse, single response):
 Do NOT update REMOTE_INSTRUCTIONS.md or extraneous_notes.txt — those are
 canonical sources Mike maintains.
 
+### Step 9 — Push branch and merge into main
+
+After releasing the lock, push your work and merge into main.
+
+**9a. Verify local branch has the expected commits before pushing:**
+
+```bash
+git log --oneline -6
+```
+
+Confirm you see your 5 commits (LOCK+backup, 4× staging files, append).
+If the branch tip is at the same commit as `origin/main` (e.g. the branch
+was silently reset), recover from the reflog:
+
+```bash
+git reflog --oneline | head -10
+# Find the "Append ranks …" commit hash, then:
+git reset --hard <that-hash>
+```
+
+**9b. Push the branch (force if needed after a reset recovery):**
+
+```bash
+git push -u origin <your-branch>
+# If the remote already has the branch in a reset state, force-push:
+git push -f origin <your-branch>
+```
+
+The git remote URL uses a local proxy whose **port changes every session**
+(`git remote -v` will show the current port). This is normal — git uses
+the configured remote automatically.
+
+**9c. Merge into main and push:**
+
+```bash
+git checkout main
+git merge <your-branch> --no-ff -m "Merge ranks <N1>-<N2>: 100 new district 1:1 device rollout rows"
+git push origin main
+```
+
+If `git merge` says "Already up to date", your branch tip is probably
+still pointing at `origin/main` — go back to step 9a and recover from
+the reflog first.
+
+**9d. Confirm:**
+
+```bash
+git log --oneline origin/main | head -3
+```
+
+The top commit should be the merge commit you just made.
+
 ## Caveats (read once, internalize)
 
 (A) `seda_row_count` for CSV ranks 1-30 uses an OLDER metric (cellcount,
