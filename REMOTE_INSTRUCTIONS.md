@@ -9,7 +9,7 @@ the prompt or any prior memory. Read this file in full, then act.
 Identify when each of the largest US public school districts adopted 1:1
 student devices (Chromebooks, iPads, laptops). The CSV
 `national_chromebook_rollouts.csv` is the canonical output. Each run, you
-will research and append the next 200 districts in size order.
+will research and append the next 300 districts in size order.
 
 District size ranking is by **mean grade-3 enrollment** computed from SEDA
 data. The pre-computed ranking is `all_districts_ranked.tsv` — TSV with
@@ -215,7 +215,7 @@ $blanks = ($csv | Where-Object { $_.leaid -eq '' }).Count
 "blank leaids after append: $blanks"  # should still be 0
 ```
 
-Should be `oldRows + 200` and `oldMaxRank + 200`, with no new blank
+Should be `oldRows + 300` and `oldMaxRank + 300`, with no new blank
 leaids.
 
 ### Step 8 — Release lock and report
@@ -245,7 +245,7 @@ After releasing the lock, push your work and merge into main.
 git log --oneline -6
 ```
 
-Confirm you see your 5 commits (LOCK+backup, 4× staging files, append).
+Confirm you see your 8 commits (LOCK+backup, 6× staging files, append).
 If the branch tip is at the same commit as `origin/main` (e.g. the branch
 was silently reset), recover from the reflog:
 
@@ -271,7 +271,7 @@ the configured remote automatically.
 
 ```bash
 git checkout main
-git merge <your-branch> --no-ff -m "Merge ranks <N1>-<N2>: 200 new district 1:1 device rollout rows"
+git merge <your-branch> --no-ff -m "Merge ranks <N1>-<N2>: 300 new district 1:1 device rollout rows"
 git push origin main
 ```
 
@@ -385,7 +385,7 @@ firm-year adopters and any flagged ambiguities.
 
 ## What to do if something is unrecoverable
 
-If validation in Step 6 fails for ALL FOUR staging files in ways you
+If validation in Step 6 fails for ALL SIX staging files in ways you
 can't fix, restore from the backup and bail:
 
 ```powershell
@@ -395,6 +395,6 @@ Remove-Item LOCK
 
 Report the failure and exit.
 
-If only ONE batch failed, still append the three good batches (150 rows)
+If only ONE batch failed, still append the five good batches (250 rows)
 and skip the failing 50 — but log it clearly so Mike can re-run that
 slice manually.
