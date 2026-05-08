@@ -4,6 +4,16 @@ You are running on a 6-hour cron. The prompt that triggered you is identical
 every run; **all state derives from the files in this folder**, never from
 the prompt or any prior memory. Read this file in full, then act.
 
+## Current state (update each run)
+
+**Last completed run:** ranks 2201–2500 (2026-05-08).
+**Next run starts at:** rank 2501 (CSV currently has 2500 data rows).
+**Branch tip:** `claude/dazzling-maxwell-YAEvS` is fully pushed; main push
+was blocked by branch protection (403). Next client: if `git push origin main`
+fails, see the fallback note in Step 9d below.
+
+---
+
 ## What this project is
 
 Identify when each of the largest US public school districts adopted 1:1
@@ -286,6 +296,27 @@ git log --oneline origin/main | head -3
 ```
 
 The top commit should be the merge commit you just made.
+
+**9e. If `git push origin main` fails with 403 (branch protection):**
+
+The feature branch is already fully pushed — the research work is safe.
+Update the **"Current state"** section at the top of this file with the
+ranks completed and the note that main push was blocked, then commit and
+push that update to your feature branch:
+
+```bash
+# Edit REMOTE_INSTRUCTIONS.md "Current state" block, then:
+git add REMOTE_INSTRUCTIONS.md
+git commit -m "Note: ranks <N1>-<N2> complete; main push blocked by branch protection"
+git push origin <your-branch>
+```
+
+The next client will pick up from the CSV's current `maxRank + 1` via the
+normal dedup workflow in Step 3 — no manual intervention needed as long as
+the CSV on the feature branch was merged to main by Mike before the next run.
+If it was NOT merged, the next client will see the stale CSV on main and
+re-research the same ranks. Mike should merge the pending PR before the next
+cron fires.
 
 ## Caveats (read once, internalize)
 
