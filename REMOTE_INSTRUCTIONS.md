@@ -9,7 +9,7 @@ the prompt or any prior memory. Read this file in full, then act.
 Identify when each of the largest US public school districts adopted 1:1
 student devices (Chromebooks, iPads, laptops). The CSV
 `national_chromebook_rollouts.csv` is the canonical output. Each run, you
-will research and append the next 100 districts in size order.
+will research and append the next 200 districts in size order.
 
 District size ranking is by **mean grade-3 enrollment** computed from SEDA
 data. The pre-computed ranking is `all_districts_ranked.tsv` — TSV with
@@ -34,10 +34,10 @@ populated. There is no separate `covered_leaids.txt`.
 
 1. `national_chromebook_rollouts.csv` is missing, malformed, or has fewer
    than 700 rows. Something is wrong; do not append. Report and exit.
-2. `wc -l national_chromebook_rollouts.csv` minus 1 (header) is **>= 3000**.
+2. `wc -l national_chromebook_rollouts.csv` minus 1 (header) is **>= 6000**.
    Project breadth target reached; stop and report. Mike will redirect
    you to phase 2 (FB-search second pass) when he wants it.
-3. After dedup, you find **fewer than 100** uncovered districts in
+3. After dedup, you find **fewer than 300** uncovered districts in
    `all_districts_ranked.tsv`. Report what's left and exit; Mike will
    regenerate the ranking from a larger SEDA slice.
 4. A previous run is in progress, signalled by a file named `LOCK` in
@@ -101,7 +101,7 @@ $cols = $csv[0].PSObject.Properties.Name.Count
 
 - If `rows < 700`, `cols != 16`, `missing.Count > 0`, or `dups.Count > 0`
   → STOP (condition 1).
-- If `maxRank >= 1500` → STOP (condition 2).
+- If `maxRank >= 3000` → STOP (condition 2).
 - If a `LOCK` file exists → STOP (condition 4).
 - Otherwise: `New-Item LOCK -Value (Get-Date).ToString()`.
 
@@ -111,34 +111,36 @@ $cols = $csv[0].PSObject.Properties.Name.Count
 Copy-Item national_chromebook_rollouts.csv ("national_chromebook_rollouts_${maxRank}rows.bak.csv")
 ```
 
-### Step 3 — Pick the next 100 uncovered districts
+### Step 3 — Pick the next 300 uncovered districts
 
 Build the covered-leaid set from the CSV's leaid column, then dedup:
 
 ```bash
 # bash (works from this folder)
 # Extract leaids already in the CSV (skip the header row)
-awk -F'","' 'NR>1 { gsub(/"/,"",$16); print $16 }' national_chromebook_rollouts.csv \
+awk -F'","' 'NR>1 { gsub(/"/,"",$16); gsub(/\r/,"",$16); print $16 }' national_chromebook_rollouts.csv \
     | sort -u > /tmp/covered.txt
 
-# Filter ranking against covered set, take next 100
-awk -F'\t' 'NR==FNR { covered[$1]=1; next } !covered[$2] { print }' \
+# Filter ranking against covered set, take next 300
+awk -F'\t' 'NR==FNR { gsub(/\r/,"",$1); covered[$1]=1; next } { gsub(/\r/,"",$2); if(!covered[$2] && $2!="4702940") print }' \
     /tmp/covered.txt all_districts_ranked.tsv \
-    | head -100 > /tmp/next_batch.tsv
+    | head -300 > /tmp/next_batch.tsv
 
-wc -l /tmp/next_batch.tsv  # should be 100
+wc -l /tmp/next_batch.tsv  # should be 300
 ```
 
 Each line of `/tmp/next_batch.tsv` is `mean_grade3 \t leaid \t leaname \t state`.
-Assign rank numbers `maxRank+1` through `maxRank+100` in order. Split into
-4 batches of 25 for parallel agents:
+Assign rank numbers `maxRank+1` through `maxRank+300` in order. Split into
+6 batches of 50 for parallel agents:
 
 | Batch | Ranks |
 |-------|-------|
-| A | maxRank+1 .. maxRank+25 |
-| B | maxRank+26 .. maxRank+50 |
-| C | maxRank+51 .. maxRank+75 |
-| D | maxRank+76 .. maxRank+100 |
+| A | maxRank+1 .. maxRank+50 |
+| B | maxRank+51 .. maxRank+100 |
+| C | maxRank+101 .. maxRank+150 |
+| D | maxRank+151 .. maxRank+200 |
+| E | maxRank+201 .. maxRank+250 |
+| F | maxRank+251 .. maxRank+300 |
 
 ### Step 4 — Sanity-check the batch
 
@@ -146,7 +148,7 @@ For each district in `/tmp/next_batch.tsv`, do a quick name+state collision
 check against the CSV: if a district with the same `(district_name, state)`
 already exists in the CSV (case-insensitive, trimmed), the leaid escaped
 the dedup. Drop it from the batch and pick the next uncovered one to keep
-the batch size at 100. Log the collision.
+the batch size at 300. Log the collision.
 
 Watch for known near-collision pitfalls (different leaids, similar names):
 multiple "Independence", "Lincoln County", "Jackson", "Newton", "Aurora",
@@ -156,10 +158,10 @@ trust it.
 Also filter out `4702940` (defunct pre-merger Memphis City SD; appears
 in SEDA panel due to old enrollment data; should never be researched).
 
-### Step 5 — Spawn 4 parallel research agents
+### Step 5 — Spawn 6 parallel research agents
 
 Use the Agent tool with `subagent_type: general-purpose` and
-`model: sonnet`. Send all 4 in a single tool-use block (parallel). Use the
+`model: sonnet`. Send all 6 in a single tool-use block (parallel). Use the
 prompt template at the bottom of this file. **Do not run the agents
 sequentially — that wastes wall-clock time.**
 
@@ -172,7 +174,7 @@ staging files yourself.
 
 Each `staging_<N1>-<N2>.csv` must:
 
-- Have exactly 25 lines (no header).
+- Have exactly 50 lines (no header).
 - Have exactly **16 fields** per line, comma-separated, all-quoted.
 - Have `seda_rank` in column 12 matching the assigned rank, NOT the enrollment.
 - Have `web_search="1"` and `fb_search="0"` in columns 14 and 15.
@@ -182,7 +184,7 @@ Each `staging_<N1>-<N2>.csv` must:
 # field-count check
 awk -F'","' 'NF != 16 { print FILENAME":"NR": "NF" fields" }' staging_*.csv
 # rank coverage
-awk -F'","' '{print $12}' staging_*.csv | sed 's/"//g' | sort -un | wc -l  # = 100
+awk -F'","' '{print $12}' staging_*.csv | sed 's/"//g' | sort -un | wc -l  # = 300
 # leaid uniqueness vs already-covered
 awk -F'","' '{gsub(/"/,"",$16); print $16}' staging_*.csv | sort -u > /tmp/new_leaids.txt
 comm -12 /tmp/covered.txt /tmp/new_leaids.txt  # should be empty (no collisions)
@@ -213,7 +215,7 @@ $blanks = ($csv | Where-Object { $_.leaid -eq '' }).Count
 "blank leaids after append: $blanks"  # should still be 0
 ```
 
-Should be `oldRows + 100` and `oldMaxRank + 100`, with no new blank
+Should be `oldRows + 200` and `oldMaxRank + 200`, with no new blank
 leaids.
 
 ### Step 8 — Release lock and report
@@ -224,7 +226,7 @@ rm LOCK
 
 Final report (terse, single response):
 
-- New rows added: 100. Range: ranks `${maxRank+1}` to `${maxRank+100}`.
+- New rows added: 200. Range: ranks `${maxRank+1}` to `${maxRank+200}`.
 - Distribution: `<X>` firm pre-pandemic / `<Y>` firm 2020 / `<Z>` post-2020 firm / `<W>` "(by)" upper-bound / `<B>` blank.
 - Notable findings: any pre-2014 firm-year adopters, any districts that
   surprised you (very late adopters, partial rollouts, etc.).
@@ -232,6 +234,58 @@ Final report (terse, single response):
 
 Do NOT update REMOTE_INSTRUCTIONS.md or extraneous_notes.txt — those are
 canonical sources Mike maintains.
+
+### Step 9 — Push branch and merge into main
+
+After releasing the lock, push your work and merge into main.
+
+**9a. Verify local branch has the expected commits before pushing:**
+
+```bash
+git log --oneline -6
+```
+
+Confirm you see your 5 commits (LOCK+backup, 4× staging files, append).
+If the branch tip is at the same commit as `origin/main` (e.g. the branch
+was silently reset), recover from the reflog:
+
+```bash
+git reflog --oneline | head -10
+# Find the "Append ranks …" commit hash, then:
+git reset --hard <that-hash>
+```
+
+**9b. Push the branch (force if needed after a reset recovery):**
+
+```bash
+git push -u origin <your-branch>
+# If the remote already has the branch in a reset state, force-push:
+git push -f origin <your-branch>
+```
+
+The git remote URL uses a local proxy whose **port changes every session**
+(`git remote -v` will show the current port). This is normal — git uses
+the configured remote automatically.
+
+**9c. Merge into main and push:**
+
+```bash
+git checkout main
+git merge <your-branch> --no-ff -m "Merge ranks <N1>-<N2>: 200 new district 1:1 device rollout rows"
+git push origin main
+```
+
+If `git merge` says "Already up to date", your branch tip is probably
+still pointing at `origin/main` — go back to step 9a and recover from
+the reflog first.
+
+**9d. Confirm:**
+
+```bash
+git log --oneline origin/main | head -3
+```
+
+The top commit should be the merge commit you just made.
 
 ## Caveats (read once, internalize)
 
@@ -281,7 +335,7 @@ Read the strategy doc at:
 for methodology.
 
 ## Districts to research (rank order)
-[BATCH-SPECIFIC: paste the 25-line block from /tmp/next_batch.tsv with
+[BATCH-SPECIFIC: paste the 50-line block from /tmp/next_batch.tsv with
  assigned rank numbers. Format each line as:
     <rank>. <leaname> -- <state> (leaid <leaid>) -- enrollment <mean_grade3>
  e.g.:
@@ -314,7 +368,7 @@ fb_search,leaid
 - leaid: copy verbatim from the assignment above (7-digit zero-padded).
 
 ## Output
-Write your 25 rows to a new file at:
+Write your 50 rows to a new file at:
   ./staging_<N1>-<N2>.csv
 
 All-quoted CSV, 16 fields per row, no header. If your Write tool is
@@ -341,6 +395,6 @@ Remove-Item LOCK
 
 Report the failure and exit.
 
-If only ONE batch failed, still append the three good batches (75 rows)
-and skip the failing 25 — but log it clearly so Mike can re-run that
+If only ONE batch failed, still append the three good batches (150 rows)
+and skip the failing 50 — but log it clearly so Mike can re-run that
 slice manually.
