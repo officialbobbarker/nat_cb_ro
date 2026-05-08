@@ -101,7 +101,7 @@ $cols = $csv[0].PSObject.Properties.Name.Count
 
 - If `rows < 700`, `cols != 16`, `missing.Count > 0`, or `dups.Count > 0`
   → STOP (condition 1).
-- If `maxRank >= 3000` → STOP (condition 2).
+- If `maxRank >= 6000` → STOP (condition 2).
 - If a `LOCK` file exists → STOP (condition 4).
 - Otherwise: `New-Item LOCK -Value (Get-Date).ToString()`.
 
