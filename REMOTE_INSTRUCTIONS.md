@@ -226,7 +226,7 @@ rm LOCK
 
 Final report (terse, single response):
 
-- New rows added: 200. Range: ranks `${maxRank+1}` to `${maxRank+200}`.
+- New rows added: 300. Range: ranks `${maxRank+1}` to `${maxRank+300}`.
 - Distribution: `<X>` firm pre-pandemic / `<Y>` firm 2020 / `<Z>` post-2020 firm / `<W>` "(by)" upper-bound / `<B>` blank.
 - Notable findings: any pre-2014 firm-year adopters, any districts that
   surprised you (very late adopters, partial rollouts, etc.).
