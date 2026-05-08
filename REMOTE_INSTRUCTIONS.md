@@ -34,10 +34,10 @@ populated. There is no separate `covered_leaids.txt`.
 
 1. `national_chromebook_rollouts.csv` is missing, malformed, or has fewer
    than 700 rows. Something is wrong; do not append. Report and exit.
-2. `wc -l national_chromebook_rollouts.csv` minus 1 (header) is **>= 3000**.
+2. `wc -l national_chromebook_rollouts.csv` minus 1 (header) is **>= 6000**.
    Project breadth target reached; stop and report. Mike will redirect
    you to phase 2 (FB-search second pass) when he wants it.
-3. After dedup, you find **fewer than 200** uncovered districts in
+3. After dedup, you find **fewer than 300** uncovered districts in
    `all_districts_ranked.tsv`. Report what's left and exit; Mike will
    regenerate the ranking from a larger SEDA slice.
 4. A previous run is in progress, signalled by a file named `LOCK` in
@@ -111,7 +111,7 @@ $cols = $csv[0].PSObject.Properties.Name.Count
 Copy-Item national_chromebook_rollouts.csv ("national_chromebook_rollouts_${maxRank}rows.bak.csv")
 ```
 
-### Step 3 — Pick the next 200 uncovered districts
+### Step 3 — Pick the next 300 uncovered districts
 
 Build the covered-leaid set from the CSV's leaid column, then dedup:
 
@@ -121,17 +121,17 @@ Build the covered-leaid set from the CSV's leaid column, then dedup:
 awk -F'","' 'NR>1 { gsub(/"/,"",$16); gsub(/\r/,"",$16); print $16 }' national_chromebook_rollouts.csv \
     | sort -u > /tmp/covered.txt
 
-# Filter ranking against covered set, take next 200
+# Filter ranking against covered set, take next 300
 awk -F'\t' 'NR==FNR { gsub(/\r/,"",$1); covered[$1]=1; next } { gsub(/\r/,"",$2); if(!covered[$2] && $2!="4702940") print }' \
     /tmp/covered.txt all_districts_ranked.tsv \
-    | head -200 > /tmp/next_batch.tsv
+    | head -300 > /tmp/next_batch.tsv
 
-wc -l /tmp/next_batch.tsv  # should be 200
+wc -l /tmp/next_batch.tsv  # should be 300
 ```
 
 Each line of `/tmp/next_batch.tsv` is `mean_grade3 \t leaid \t leaname \t state`.
-Assign rank numbers `maxRank+1` through `maxRank+200` in order. Split into
-4 batches of 50 for parallel agents:
+Assign rank numbers `maxRank+1` through `maxRank+300` in order. Split into
+6 batches of 50 for parallel agents:
 
 | Batch | Ranks |
 |-------|-------|
@@ -139,6 +139,8 @@ Assign rank numbers `maxRank+1` through `maxRank+200` in order. Split into
 | B | maxRank+51 .. maxRank+100 |
 | C | maxRank+101 .. maxRank+150 |
 | D | maxRank+151 .. maxRank+200 |
+| E | maxRank+201 .. maxRank+250 |
+| F | maxRank+251 .. maxRank+300 |
 
 ### Step 4 — Sanity-check the batch
 
@@ -146,7 +148,7 @@ For each district in `/tmp/next_batch.tsv`, do a quick name+state collision
 check against the CSV: if a district with the same `(district_name, state)`
 already exists in the CSV (case-insensitive, trimmed), the leaid escaped
 the dedup. Drop it from the batch and pick the next uncovered one to keep
-the batch size at 200. Log the collision.
+the batch size at 300. Log the collision.
 
 Watch for known near-collision pitfalls (different leaids, similar names):
 multiple "Independence", "Lincoln County", "Jackson", "Newton", "Aurora",
@@ -156,10 +158,10 @@ trust it.
 Also filter out `4702940` (defunct pre-merger Memphis City SD; appears
 in SEDA panel due to old enrollment data; should never be researched).
 
-### Step 5 — Spawn 4 parallel research agents
+### Step 5 — Spawn 6 parallel research agents
 
 Use the Agent tool with `subagent_type: general-purpose` and
-`model: sonnet`. Send all 4 in a single tool-use block (parallel). Use the
+`model: sonnet`. Send all 6 in a single tool-use block (parallel). Use the
 prompt template at the bottom of this file. **Do not run the agents
 sequentially — that wastes wall-clock time.**
 
@@ -182,7 +184,7 @@ Each `staging_<N1>-<N2>.csv` must:
 # field-count check
 awk -F'","' 'NF != 16 { print FILENAME":"NR": "NF" fields" }' staging_*.csv
 # rank coverage
-awk -F'","' '{print $12}' staging_*.csv | sed 's/"//g' | sort -un | wc -l  # = 200
+awk -F'","' '{print $12}' staging_*.csv | sed 's/"//g' | sort -un | wc -l  # = 300
 # leaid uniqueness vs already-covered
 awk -F'","' '{gsub(/"/,"",$16); print $16}' staging_*.csv | sort -u > /tmp/new_leaids.txt
 comm -12 /tmp/covered.txt /tmp/new_leaids.txt  # should be empty (no collisions)
