@@ -1,0 +1,560 @@
+rank	district	state	field	FcoMU	mCWgg
+2501	Victor Central School District	NY	year_started	2020 (by)	
+2501	Victor Central School District	NY	one_to_one	Yes (likely)	Yes
+2501	Victor Central School District	NY	grade_levels	3-12	K-12 (3-12 take-home; K-2 in-class)
+2502	Foxborough	MA	year_started	2020 (by)	
+2503	Wyoming County Schools	WV	year_started	2020 (by)	
+2503	Wyoming County Schools	WV	grade_levels	K-12	Not specified
+2504	Lake Dallas ISD	TX	year_started	2020 (by)	2019
+2505	Elizabethtown Area SD	PA	one_to_one	Yes (phased)	Yes
+2505	Elizabethtown Area SD	PA	grade_levels	Gr. 4-12 (initial); later expanded to Gr. 1+	1-12
+2506	Claremore	OK	year_started	2021 (by)	
+2506	Claremore	OK	one_to_one	Yes	Yes (likely)
+2506	Claremore	OK	grade_levels	K-12	Not specified
+2507	Logan-Hocking Local	OH	year_started	2014	
+2507	Logan-Hocking Local	OH	month_started	Fall	
+2507	Logan-Hocking Local	OH	one_to_one	Yes (phased)	Yes (likely)
+2507	Logan-Hocking Local	OH	grade_levels	Gr. 7-12	Not specified
+2507	Logan-Hocking Local	OH	device_type	Laptop	Chromebook
+2508	Wyandotte School District of the City of	MI	grade_levels	Gr. 5-12	5-12
+2509	Johnson County	KY	year_started	2020	
+2509	Johnson County	KY	one_to_one	Yes	Yes (likely)
+2509	Johnson County	KY	grade_levels	K-12	Not specified
+2510	Sunman-Dearborn Com Sch Corp	IN	month_started	Fall	
+2510	Sunman-Dearborn Com Sch Corp	IN	grade_levels	Gr. 6-8 (initial)	6-12 (2017); K-12 eventually
+2512	Upper Saint Clair SD	PA	year_started	2020	2015
+2512	Upper Saint Clair SD	PA	one_to_one	Yes	Yes (phased)
+2512	Upper Saint Clair SD	PA	grade_levels	K-12	MS then K-12
+2512	Upper Saint Clair SD	PA	device_type	Chromebook	iPad then Chromebook
+2513	North Hills SD	PA	year_started	2020 (by)	2016
+2513	North Hills SD	PA	one_to_one	Yes	Yes (phased)
+2513	North Hills SD	PA	grade_levels	K-12	6-8 then K-12
+2514	Niskayuna Central School District	NY	month_started	Fall	September
+2514	Niskayuna Central School District	NY	grade_levels	Gr. 6-12 (initial)	6-12
+2515	Washington	MO	year_started	2020 (by)	2022 (by)
+2516	Falmouth	MA	month_started	Fall	September
+2516	Falmouth	MA	one_to_one	Yes	Yes (phased)
+2516	Falmouth	MA	grade_levels	K-12	MS pilot then all grades
+2517	Garrett County Public Schools	MD	year_started	2020 (by)	
+2517	Garrett County Public Schools	MD	grade_levels	K-12	Not specified
+2517	Garrett County Public Schools	MD	device_type	Chromebook	Not specified
+2518	Fayette County School Corp	IN	grade_levels	Gr. 2-12	2-12 (K-1 shared)
+2519	Minidoka County Joint District	ID	year_started	2020	2016
+2519	Minidoka County Joint District	ID	month_started	Fall	
+2519	Minidoka County Joint District	ID	grade_levels	HS (prior); MS added Fall 2020	HS then MS
+2519	Minidoka County Joint District	ID	device_type	Chromebook	Laptop
+2520	Farmington School District	CT	grade_levels	Gr. 3-12	3-12
+2521	Adams County/Ohio Valley Local	OH	year_started	2020 (by)	
+2521	Adams County/Ohio Valley Local	OH	grade_levels	K-12	Not specified
+2522	West Carrollton City	OH	year_started	2020 (by)	
+2522	West Carrollton City	OH	grade_levels	K-12	Not specified
+2523	Union-Endicott Central School District	NY	year_started	2020 (by)	
+2524	Lawrence Township Public Schools	NJ	year_started	2020 (by)	2021 (by)
+2524	Lawrence Township Public Schools	NJ	one_to_one	Yes (likely)	Yes
+2524	Lawrence Township Public Schools	NJ	grade_levels	K-12	Not specified
+2525	Burlington Township Board of Education	NJ	year_started	2020 (by)	
+2525	Burlington Township Board of Education	NJ	grade_levels	K-12	Not specified
+2525	Burlington Township Board of Education	NJ	device_type	Chromebook	Not specified
+2526	Northfield Public School District	MN	year_started	2015	2013
+2526	Northfield Public School District	MN	month_started	Fall	August
+2526	Northfield Public School District	MN	one_to_one	Yes (phased)	Yes
+2526	Northfield Public School District	MN	grade_levels	Gr. 5-12 (initial)	6-12
+2526	Northfield Public School District	MN	device_type	Chromebook	iPad
+2527	Garden City Public Schools	MI	one_to_one	Yes (likely)	Yes
+2527	Garden City Public Schools	MI	grade_levels	Gr. 5-12	Not specified
+2528	RSU 06/MSAD 06	ME	year_started	2020 (by)	
+2528	RSU 06/MSAD 06	ME	grade_levels	K-12	Not specified
+2529	Union Elementary District	AZ	year_started	2020 (by)	
+2529	Union Elementary District	AZ	grade_levels	K-8	Not specified
+2529	Union Elementary District	AZ	device_type	Chromebook	Not specified
+2530	Mineral County Schools	WV	year_started	2020 (by)	
+2530	Mineral County Schools	WV	grade_levels	K-12	Not specified
+2531	Bristol	TN	year_started	2020 (by)	
+2531	Bristol	TN	grade_levels	Gr. 3-12	3-12
+2532	Easton	MA	year_started	2020 (by)	
+2532	Easton	MA	grade_levels	K-12	Not specified
+2533	Dartmouth	MA	year_started	2020 (by)	
+2533	Dartmouth	MA	one_to_one	Partial	Yes (likely)
+2533	Dartmouth	MA	grade_levels	MS+	Not specified
+2534	Turner-Kansas City	KS	year_started	2020 (by)	
+2534	Turner-Kansas City	KS	grade_levels	K-12	Not specified
+2534	Turner-Kansas City	KS	device_type	Mixed (MacBook/iPad)	Laptop
+2535	Greenwood Community Sch Corp	IN	year_started	2020 (by)	
+2535	Greenwood Community Sch Corp	IN	grade_levels	K-12	Not specified
+2536	Salida Union Elementary	CA	year_started	2020 (by)	
+2536	Salida Union Elementary	CA	one_to_one	Yes (phased)	Partial
+2536	Salida Union Elementary	CA	grade_levels	Gr. 6-8	6-8
+2537	Amador County Unified	CA	year_started	2017	
+2537	Amador County Unified	CA	one_to_one	Yes	Yes (likely)
+2537	Amador County Unified	CA	grade_levels	K-12	Not specified
+2537	Amador County Unified	CA	device_type	Mixed (Mac/iPad)	Not specified
+2538	Chambers County	AL	year_started	2020	2022 (by)
+2538	Chambers County	AL	grade_levels	K-12	Not specified
+2539	South Kingstown	RI	year_started	2016	2015
+2539	South Kingstown	RI	month_started	Fall	
+2539	South Kingstown	RI	grade_levels	HS + Gr. 5-8	HS first then MS
+2540	North Kingstown	RI	year_started	2020 (by)	
+2540	North Kingstown	RI	grade_levels	K-12	Not specified
+2541	Currituck County Schools	NC	year_started	2019	2019 (by)
+2541	Currituck County Schools	NC	one_to_one	Yes (phased)	Yes
+2541	Currituck County Schools	NC	grade_levels	Gr. 6-12	6-12
+2542	Oswego City School District	NY	year_started	2020 (by)	
+2542	Oswego City School District	NY	one_to_one	Yes (likely)	Yes
+2542	Oswego City School District	NY	grade_levels	K-12	Not specified
+2543	Moorestown Township Public School District	NJ	year_started	2020 (by)	2021 (by)
+2543	Moorestown Township Public School District	NJ	grade_levels	Gr. 4-12	4-12
+2543	Moorestown Township Public School District	NJ	device_type	Mixed (Chromebook/iPad/laptop)	Laptop/Chromebook
+2544	Churchill County School District	NV	grade_levels	K-12	2-12
+2545	Oxford School District	MS	device_type	Mixed (Mac/iPad)	Mixed (Mac laptop/iPad)
+2546	Alpena Public Schools	MI	year_started	2021	2021 (by)
+2546	Alpena Public Schools	MI	month_started	Fall	
+2546	Alpena Public Schools	MI	grade_levels	Gr. 6-12	6-12
+2547	Dunlap CUSD 323	IL	year_started	2017	2016
+2547	Dunlap CUSD 323	IL	month_started	Fall	Spring
+2547	Dunlap CUSD 323	IL	grade_levels	Gr. 4-8 (initial)	Pilot 11 classrooms then district-wide
+2548	Ocean View	CA	year_started	2020 (by)	
+2548	Ocean View	CA	grade_levels	K-8	Not specified
+2549	Central Falls	RI	year_started	2020 (by)	
+2549	Central Falls	RI	grade_levels	K-12	Not specified
+2551	DeKalb Co Ctl United Sch Dist	IN	year_started	2020	
+2551	DeKalb Co Ctl United Sch Dist	IN	month_started	Fall	
+2551	DeKalb Co Ctl United Sch Dist	IN	one_to_one	Yes	Yes (likely)
+2556	Roosevelt Union Free School District	NY	one_to_one	Yes	Yes (likely)
+2556	Roosevelt Union Free School District	NY	grade_levels	1-12	K-12
+2557	Agawam	MA	year_started	2021	
+2557	Agawam	MA	one_to_one	Yes	Yes (likely)
+2558	Jerome Joint District	ID	year_started	2021	
+2558	Jerome Joint District	ID	month_started	Fall	
+2558	Jerome Joint District	ID	grade_levels	9-12	9-12 (first)
+2560	Enumclaw School District	WA	year_started	2020	
+2561	Oxford Area SD	PA	year_started	2023	
+2561	Oxford Area SD	PA	month_started	Fall	
+2561	Oxford Area SD	PA	one_to_one	Yes	Yes (likely)
+2561	Oxford Area SD	PA	grade_levels	5-12	K-12
+2563	Fort Lee Public Schools	NJ	month_started	Fall	September
+2563	Fort Lee Public Schools	NJ	grade_levels	5-12	7-12 (initial); later 5-12
+2565	Norfolk Public Schools	NE	year_started	2013	
+2565	Norfolk Public Schools	NE	month_started	Fall	
+2565	Norfolk Public Schools	NE	grade_levels	7-12	7-12 (1:1); PreK-6 (2:1)
+2567	Mt. Pleasant City School District	MI	one_to_one	Yes	Yes (likely)
+2568	Grant County	KY	month_started	Fall	August
+2568	Grant County	KY	grade_levels	9-12	9-12 (initial)
+2569	Bellwood SD 88	IL	year_started	2020	
+2569	Bellwood SD 88	IL	month_started	Fall	
+2569	Bellwood SD 88	IL	one_to_one	Yes	Yes (likely)
+2570	Albany County School District #1	WY	year_started	2020	2016
+2570	Albany County School District #1	WY	one_to_one	Yes	Yes (phased)
+2571	Salem City Pblc Schs	VA	month_started	Fall	September
+2571	Salem City Pblc Schs	VA	grade_levels	9-12	K-12
+2572	Edgefield 01	SC	month_started	Fall	
+2572	Edgefield 01	SC	grade_levels	PK-12	PreK-12
+2573	McKeesport Area SD	PA	year_started	2022	
+2573	McKeesport Area SD	PA	month_started	August	
+2573	McKeesport Area SD	PA	grade_levels	3-12	2-12
+2574	Olmsted Falls City	OH	month_started	Fall	August
+2574	Olmsted Falls City	OH	grade_levels	4-9	4-9 (initial); expanded K-12
+2575	Timberlane Regional School District	NH	year_started		2020
+2575	Timberlane Regional School District	NH	one_to_one	Yes (likely)	Yes (by)
+2575	Timberlane Regional School District	NH	grade_levels	7-12	6th & 9th grade (initial)
+2576	Sycamore CUSD 427	IL	year_started		2019
+2576	Sycamore CUSD 427	IL	month_started		August
+2576	Sycamore CUSD 427	IL	one_to_one	Yes (likely)	Yes (phased)
+2576	Sycamore CUSD 427	IL	grade_levels	6-12	MS first; working toward K-12
+2577	Burlington-Edison School District	WA	year_started	2020	
+2578	Hudson School District	NH	grade_levels	6-12	MS & HS (dedicated laptop); ES (shared)
+2578	Hudson School District	NH	device_type	Laptop	laptop
+2580	Wilmington	MA	grade_levels	6-12	9-12 first (2016); phased to 6-12 by 2019-20
+2584	Wall Township Public Schools	NJ	one_to_one	Yes (likely)	Yes
+2587	Toppenish School District	WA	year_started	2020	
+2587	Toppenish School District	WA	month_started	April	
+2588	Plum Borough SD	PA	month_started	Fall	
+2588	Plum Borough SD	PA	grade_levels	4-12	4th grade first; expanding
+2589	Penn Hills SD	PA	grade_levels	3-12	K-12
+2589	Penn Hills SD	PA	device_type	Mixed (Chromebook/iPad)	Mixed (Chromebook/laptop/Surface/iPad)
+2591	Edgewood City	OH	device_type	Chromebook	Mixed
+2593	Transylvania County Schools	NC	year_started	2015	2014
+2593	Transylvania County Schools	NC	one_to_one	Yes	Yes (phased)
+2593	Transylvania County Schools	NC	grade_levels	6-12	6-12 (Chromebook); 4-5 also eventually
+2594	Alexandria Public School District	MN	year_started	2020	2015
+2594	Alexandria Public School District	MN	grade_levels	K-12	5-12 (initial); K-12 eventually
+2597	North Olmsted City	OH	year_started	2020	
+2597	North Olmsted City	OH	month_started	September	
+2598	Brecksville-Broadview Heights City	OH	one_to_one	Yes (likely)	Yes
+2599	Harrison Central School District	NY	month_started	Fall	
+2599	Harrison Central School District	NY	grade_levels	K-12	6-12
+2599	Harrison Central School District	NY	device_type	Mixed (iPad/Chromebook)	Chromebook
+2601	Sartell-St. Stephen School District	MN	year_started		2020 (by)
+2601	Sartell-St. Stephen School District	MN	grade_levels	K-12	6-12
+2601	Sartell-St. Stephen School District	MN	device_type	MacBook Air (HS) / iPad (MS)	Mixed (MacBook/iPad)
+2602	New Prague Area Schools	MN	year_started		2020 (by)
+2603	Mattawan Consolidated School	MI	year_started		2020 (by)
+2604	Franklin County	GA	year_started		2017
+2605	Oroville City Elementary	CA	year_started	2020	2020 (by)
+2605	Oroville City Elementary	CA	month_started	Spring	
+2606	Homewood City	AL	year_started		2020 (by)
+2606	Homewood City	AL	one_to_one	Partial	Yes
+2607	Kaukauna Area School District	WI	year_started		2020 (by)
+2608	Upshur County Schools	WV	year_started		2020 (by)
+2609	Kaufman ISD	TX	month_started	Fall	August
+2609	Kaufman ISD	TX	grade_levels	HS (grades 3-5 classroom only; MS classroom only)	9-12 (take-home); 3-8 (in-school)
+2610	Lincoln County	TN	year_started	2020	2020 (by)
+2610	Lincoln County	TN	month_started	Fall	
+2610	Lincoln County	TN	grade_levels	K-12	1-12
+2611	Watertown School District 14-4	SD	year_started	2014	2003
+2611	Watertown School District 14-4	SD	month_started	Fall	August
+2611	Watertown School District 14-4	SD	one_to_one	Yes (phased)	Yes
+2611	Watertown School District 14-4	SD	grade_levels	7-12	9-12
+2611	Watertown School District 14-4	SD	device_type	Chromebook	Laptop
+2612	Conewago Valley SD	PA	month_started	Fall	
+2612	Conewago Valley SD	PA	one_to_one	Yes (phased)	Yes
+2612	Conewago Valley SD	PA	grade_levels	6-12	9-12
+2613	Western Heights	OK	year_started		2020 (by)
+2613	Western Heights	OK	grade_levels	K-12	PK-12
+2614	Avon Lake City	OH	year_started	2024	2020 (by)
+2614	Avon Lake City	OH	month_started	Fall	
+2614	Avon Lake City	OH	one_to_one	Yes (phased)	Yes
+2614	Avon Lake City	OH	grade_levels	1-3 (Phase 1); expanding to K-12 by 2026-27	K-12
+2615	Pleasantville Public School District	NJ	year_started		2021 (by)
+2615	Pleasantville Public School District	NJ	device_type	Chromebook	Mixed (Chromebook/iPad)
+2616	Platte Co. R-III	MO	month_started	Fall	August
+2616	Platte Co. R-III	MO	grade_levels	6-12 (2017-18); K-12 (2020-21)	6-12
+2617	Stoughton	MA	year_started		2020 (by)
+2618	Concordia Parish	LA	year_started		2020 (by)
+2619	East Noble School Corp	IN	month_started	Fall	August
+2619	East Noble School Corp	IN	device_type	iPad (K-4) / Laptop (5-12)	Mixed (laptop/iPad/iPod)
+2620	Gilmer County	GA	year_started	2022	2020 (by)
+2620	Gilmer County	GA	month_started	Fall	
+2620	Gilmer County	GA	grade_levels	3-12	K-12
+2621	Lake Tahoe Unified	CA	year_started	2014	2015
+2621	Lake Tahoe Unified	CA	month_started	Fall	
+2621	Lake Tahoe Unified	CA	one_to_one	Yes	Yes (phased)
+2622	Waterford Unified	CA	year_started	2020	2020 (by)
+2622	Waterford Unified	CA	month_started	Spring	August
+2623	Grandview School District	WA	year_started		2020 (by)
+2623	Grandview School District	WA	one_to_one	Yes (phased)	Yes
+2623	Grandview School District	WA	grade_levels	HS (1-to-1); district-wide unconfirmed	9-12
+2623	Grandview School District	WA	device_type	Laptop/Chromebook	Laptop
+2624	Fluvanna Co Pblc Schs	VA	month_started	Fall	August
+2624	Fluvanna Co Pblc Schs	VA	grade_levels	PreK-12	PK-12
+2625	Gibson Co Sp Dist	TN	year_started		2020 (by)
+2625	Gibson Co Sp Dist	TN	one_to_one	Yes (likely)	Yes (phased)
+2625	Gibson Co Sp Dist	TN	grade_levels	K-12	9-12
+2625	Gibson Co Sp Dist	TN	device_type	Chromebook	Laptop
+2626	Altus	OK	month_started	Fall	August
+2626	Altus	OK	grade_levels	HS 2015-16; Elementary 2016-17	K-12
+2627	Amherst Exempted Village	OH	year_started		2020 (by)
+2628	Oregon City	OH	month_started	Fall	
+2629	Paramus Public Schools	NJ	year_started		2020 (by)
+2630	Farmington R-VII	MO	year_started		2020 (by)
+2630	Farmington R-VII	MO	one_to_one	Yes	Yes (phased)
+2631	Guilford School District	CT	year_started		2016
+2631	Guilford School District	CT	month_started		August
+2631	Guilford School District	CT	one_to_one	Yes	Yes (phased)
+2632	Martinez Unified	CA	year_started		2020 (by)
+2632	Martinez Unified	CA	one_to_one	Yes (likely)	Yes
+2633	King City Union	CA	year_started		2020 (by)
+2633	King City Union	CA	one_to_one	Yes	Yes (likely)
+2634	Menomonee Falls School District	WI	year_started		2020 (by)
+2635	Obion County	TN	year_started		2020 (by)
+2636	Solanco SD	PA	year_started		2020 (by)
+2636	Solanco SD	PA	one_to_one	Yes (likely)	Yes
+2637	Lower Dauphin SD	PA	year_started		2020 (by)
+2638	Barberton City	OH	year_started		2020 (by)
+2639	Pontotoc Co School Dist	MS	year_started		2020 (by)
+2640	Reeths-Puffer Schools	MI	month_started	Spring	August
+2640	Reeths-Puffer Schools	MI	one_to_one	Yes (phased)	Yes (likely)
+2641	North Middlesex	MA	year_started		2020 (by)
+2642	Burlington	MA	grade_levels	9-12 (2011); 6-12 (2013+)	9-12 (then 6-8)
+2643	Livingston Union	CA	year_started		2020 (by)
+2644	Lindale ISD	TX	year_started		2020 (by)
+2644	Lindale ISD	TX	one_to_one	Yes	Yes (likely)
+2645	Orangeburg 04	SC	year_started		2020 (by)
+2645	Orangeburg 04	SC	device_type	Mixed	Mixed (Chromebook/iPad)
+2646	Kings Park Central School District	NY	year_started		2020 (by)
+2646	Kings Park Central School District	NY	one_to_one	Yes	Yes (likely)
+2647	Mcdonald Co. R-I	MO	year_started		2020 (by)
+2648	Sauk Rapids-Rice Public Schools	MN	year_started		2020 (by)
+2648	Sauk Rapids-Rice Public Schools	MN	one_to_one	Yes	Yes (likely)
+2649	Fremont RE-1	CO	month_started	Fall	August
+2649	Fremont RE-1	CO	grade_levels	HS (2018-19); MS expanding	9-12
+2650	Cottonwood-Oak Creek Elementary District	AZ	year_started		2020 (by)
+2651	Waunakee Community School District	WI	month_started	Spring	
+2651	Waunakee Community School District	WI	grade_levels	5-12 (Intermediate pilot Spring 2018; MS/HS 2018-19)	Intermediate (pilot spring 2018); MS and HS 2018-19
+2652	Kiski Area SD	PA	month_started	Fall	August
+2652	Kiski Area SD	PA	one_to_one	Yes (phased)	Yes
+2652	Kiski Area SD	PA	grade_levels	HS first (2016); district-wide over time	HS (2016); district-wide phased
+2653	Mad River Local	OH	one_to_one	Yes (likely)	
+2653	Mad River Local	OH	device_type	Chromebook	
+2654	Carthage Central School District	NY	year_started		2020 (by)
+2654	Carthage Central School District	NY	grade_levels		Not specified
+2655	Eastport-South Manor CSD	NY	year_started		2020 (by)
+2655	Eastport-South Manor CSD	NY	grade_levels		Not specified
+2656	Matawan-Aberdeen Regional School District	NJ	year_started		2020 (by)
+2656	Matawan-Aberdeen Regional School District	NJ	grade_levels		Not specified
+2657	West Springfield	MA	year_started		2020 (by)
+2657	West Springfield	MA	grade_levels		Not specified
+2658	RSU 23	ME	year_started		2020 (by)
+2658	RSU 23	ME	grade_levels		HS confirmed; district-wide likely
+2659	New Castle Community Sch Corp	IN	year_started		2020 (by)
+2659	New Castle Community Sch Corp	IN	grade_levels		Not specified
+2660	School City of Hobart	IN	year_started		2020 (by)
+2660	School City of Hobart	IN	grade_levels	1-12	Grades 1-12 Chromebook; K iPad
+2661	Mannheim SD 83	IL	year_started		2020 (by)
+2661	Mannheim SD 83	IL	grade_levels	PK-8	Not specified
+2662	Nicholas County Schools	WV	year_started		2020 (by)
+2662	Nicholas County Schools	WV	grade_levels		Not specified
+2663	Calallen ISD	TX	year_started		2020 (by)
+2663	Calallen ISD	TX	grade_levels		Not specified
+2664	Dyer County	TN	year_started		2020 (by)
+2664	Dyer County	TN	grade_levels		Not specified
+2665	Moon Area SD	PA	year_started		2020 (by)
+2665	Moon Area SD	PA	one_to_one	Yes (likely)	Yes
+2665	Moon Area SD	PA	grade_levels		K-6 optional protection; 7-12 mandatory $50 device fee
+2666	Westlake City	OH	year_started		2020 (by)
+2666	Westlake City	OH	grade_levels		Not specified
+2667	Hamburg Central School District	NY	year_started		2020 (by)
+2667	Hamburg Central School District	NY	grade_levels		Not specified
+2668	St. James Parish	LA	year_started		2020 (by)
+2668	St. James Parish	LA	grade_levels		Not specified
+2669	Anderson County	KY	year_started		2020 (by)
+2669	Anderson County	KY	grade_levels		Not specified
+2670	Seaman	KS	year_started		2020 (by)
+2670	Seaman	KS	grade_levels		Not specified
+2671	Anderson 02	SC	year_started		2017
+2671	Anderson 02	SC	one_to_one	Yes (likely)	Yes (phased)
+2671	Anderson 02	SC	grade_levels		Grades 4-8 (2017); Grade 3 (2019); K-8 fully 1:1 by 2020
+2672	Springfield SD	PA	grade_levels	6-8 (plus K-5 added 2020-21)	Grades 6-8 (established program); K-5 ordered 2020 back-ordered
+2673	South Euclid-Lyndhurst City	OH	one_to_one	Partial	Yes (likely)
+2673	South Euclid-Lyndhurst City	OH	grade_levels		Not specified
+2674	Brookhaven-Comsewogue UFSD	NY	year_started		2020 (by)
+2674	Brookhaven-Comsewogue UFSD	NY	one_to_one	Yes (likely)	Yes
+2674	Brookhaven-Comsewogue UFSD	NY	grade_levels		K-12
+2675	Columbia Heights Public School Dist	MN	year_started		2020 (by)
+2675	Columbia Heights Public School Dist	MN	one_to_one	Yes (likely)	Yes
+2675	Columbia Heights Public School Dist	MN	grade_levels	K-12	Grades 4-11 (personalized learning with 1:1 devices)
+2675	Columbia Heights Public School Dist	MN	device_type	Chromebook	Mixed (Chromebook/tablet)
+2676	Dixon Unified	CA	year_started		2020 (by)
+2676	Dixon Unified	CA	one_to_one	Yes (likely)	Yes (phased)
+2676	Dixon Unified	CA	grade_levels		Grades 3-12 take-home; PreK-2 classroom carts
+2677	Scott Co Pblc Schs	VA	year_started		2020 (by)
+2677	Scott Co Pblc Schs	VA	grade_levels	PK-12	PreK-12
+2678	El Campo ISD	TX	year_started		2020 (by)
+2678	El Campo ISD	TX	grade_levels		Not specified
+2679	Macon County	TN	year_started		2020 (by)
+2679	Macon County	TN	grade_levels		Not specified
+2680	Shawnee	OK	year_started		2020 (by)
+2680	Shawnee	OK	one_to_one	Yes (likely)	Yes
+2680	Shawnee	OK	grade_levels		K-12
+2681	So Sioux City Community Schs	NE	year_started		2020 (by)
+2681	So Sioux City Community Schs	NE	grade_levels	HS (high school first)	HS confirmed; district-wide likely
+2682	Niles Community Schools	MI	year_started		2020 (by)
+2682	Niles Community Schools	MI	grade_levels		Not specified
+2683	Greenville Public Schools	MI	year_started	2018	2020 (by)
+2683	Greenville Public Schools	MI	one_to_one	Yes (phased)	Yes (likely)
+2683	Greenville Public Schools	MI	grade_levels		Not specified
+2684	Urbandale Comm School District	IA	year_started		2020 (by)
+2684	Urbandale Comm School District	IA	grade_levels		Not specified
+2685	McFarland Unified	CA	month_started	Fall	
+2685	McFarland Unified	CA	grade_levels	HS (take-home); K-8 (in-school)	HS take-home; K-8 school-only initially
+2686	Lincoln County Schools	WV	grade_levels	1-12 (K added Sep 2020)	Grades 1-12 (fall 2019); K added Sept 2020
+2687	Somerset ISD	TX	month_started		August
+2687	Somerset ISD	TX	one_to_one	Yes	Yes (likely)
+2688	Paris ISD	TX	year_started		2020 (by)
+2688	Paris ISD	TX	grade_levels		Not specified
+2689	Teays Valley Local	OH	year_started		2019
+2689	Teays Valley Local	OH	grade_levels		MS and HS (2019-2022 timeframe noted)
+2690	Fulton City School District	NY	month_started	Fall	
+2690	Fulton City School District	NY	one_to_one	Yes	Yes (phased)
+2690	Fulton City School District	NY	grade_levels	6-12	MS and HS (2015 phased); district-wide DLI by 2018-19
+2691	West Milford Township Public Schools	NJ	year_started		2020 (by)
+2691	West Milford Township Public Schools	NJ	grade_levels		Not specified
+2692	Washington Township	NJ	year_started		2020 (by)
+2692	Washington Township	NJ	one_to_one	Yes (phased)	Yes (likely)
+2692	Washington Township	NJ	grade_levels	7-8 (take-home expanded)	Not specified
+2693	Nutley Public School District	NJ	grade_levels	6 (Jan 2017); 6-12 (Sep 2018)	Grade 6 (Jan 2017); Grades 6-12 (Sept 2018)
+2694	Fitzgerald Public Schools	MI	year_started		2020 (by)
+2694	Fitzgerald Public Schools	MI	grade_levels		Not specified
+2695	Bourbonnais SD 53	IL	grade_levels		Not specified
+2696	Albany City Unified	CA	year_started		2020 (by)
+2696	Albany City Unified	CA	grade_levels		Not specified
+2697	De Pere School District	WI	year_started		2020 (by)
+2697	De Pere School District	WI	grade_levels	2-12 (Gr 2-6 in-school; Gr 7-12 take-home)	Grades 2-6 school-only; Grades 7-12 take-home
+2698	Bay City ISD	TX	one_to_one	Yes	Yes (likely)
+2698	Bay City ISD	TX	grade_levels	K-12	K-12 (COVID rollout)
+2699	Canal Winchester Local	OH	year_started		2020 (by)
+2700	Zanesville City	OH	year_started		2020 (by)
+2700	Zanesville City	OH	grade_levels		Not specified
+2700	Zanesville City	OH	device_type	Mixed (Chromebook/iPad/laptop)	Chromebook
+2701	Artesia Public Schools	NM	one_to_one		Yes (likely)
+2701	Artesia Public Schools	NM	grade_levels		K-12
+2701	Artesia Public Schools	NM	device_type		Mixed (laptops/iPads)
+2703	Hastings Public Schools	NE	grade_levels	HS (2014); MS 8th grade (2019); district-wide post-COVID	9-12 first; 8th grade added 2019
+2703	Hastings Public Schools	NE	device_type	Laptop (later Chromebook)	Chromebook
+2704	Clarksdale Municipal School Dist	MS	device_type	Mixed	Chromebook
+2705	Lowell Area Schools	MI	grade_levels	K-12	6-12
+2706	Melrose	MA	year_started	2019	2020
+2706	Melrose	MA	month_started	June	
+2706	Melrose	MA	one_to_one	Yes (phased)	Yes
+2706	Melrose	MA	grade_levels	6-12 (pilot); expanding to all grades	6-12
+2707	Clinton Comm School District	IA	month_started		September
+2707	Clinton Comm School District	IA	grade_levels	K-12	6-12 (iPads/MacBooks); K-5 carts
+2707	Clinton Comm School District	IA	device_type	Chromebook	Mixed (iPad/MacBook)
+2708	Lake Pend Oreille District	ID	year_started	2015 (by)	2020 (by)
+2708	Lake Pend Oreille District	ID	one_to_one	Yes	Yes (likely)
+2708	Lake Pend Oreille District	ID	grade_levels	7-12	K-12
+2709	Wethersfield School District	CT	grade_levels	K-12	7-12
+2711	Herricks Union Free School District	NY	one_to_one	Yes	Yes (likely)
+2712	Hopewell Valley Regional School District	NJ	year_started	2016	2020 (by)
+2712	Hopewell Valley Regional School District	NJ	month_started	Fall	
+2712	Hopewell Valley Regional School District	NJ	one_to_one	Yes (phased)	Yes
+2712	Hopewell Valley Regional School District	NJ	grade_levels	5,6,9 (2016-17); expanding	6-12
+2713	Grand Rapids Public School District	MN	device_type	Mixed	Chromebook
+2714	Byron Center Public Schools	MI	one_to_one	Yes	Yes (likely)
+2717	Butts County	GA	year_started	2021	2020 (by)
+2717	Butts County	GA	month_started	Fall	
+2718	Holmen School District	WI	year_started	2015	2015 (by)
+2718	Holmen School District	WI	month_started	November	
+2718	Holmen School District	WI	one_to_one	Yes (phased)	Yes
+2718	Holmen School District	WI	grade_levels	6-12	K-12
+2720	Floresville ISD	TX	year_started	2024	2020
+2720	Floresville ISD	TX	month_started	Fall	
+2720	Floresville ISD	TX	one_to_one	Yes (phased)	Yes
+2720	Floresville ISD	TX	grade_levels	HS first (2024)	PK-12
+2720	Floresville ISD	TX	device_type	Chromebook	Mixed (iPad/Chromebook)
+2721	Sapulpa	OK	year_started	2016 (by)	2020 (by)
+2721	Sapulpa	OK	grade_levels	PreK-12	3-12
+2724	Allen Park Public Schools	MI	one_to_one	Yes	Yes (likely)
+2726	Weld County School District No. RE-5J	CO	one_to_one	Yes (likely)	Yes
+2726	Weld County School District No. RE-5J	CO	device_type	Chromebook	iPad
+2727	Eureka City Schools	CA	year_started	2020	2020 (by)
+2727	Eureka City Schools	CA	month_started	October	
+2727	Eureka City Schools	CA	one_to_one	Yes	Yes (likely)
+2727	Eureka City Schools	CA	grade_levels	K-12	2-12
+2730	Daniel Boone Area SD	PA	one_to_one	Yes	Yes (likely)
+2731	Franklin Square Union Free School District	NY	grade_levels	PreK-6	K-12
+2732	Neptune Township School District	NJ	month_started	Fall	
+2732	Neptune Township School District	NJ	grade_levels	5,6,9 (2016-17); expanded	Grades 5-6-9 first; all grades by 2019
+2733	Danvers	MA	month_started		August
+2733	Danvers	MA	one_to_one	Yes	Yes (phased)
+2733	Danvers	MA	grade_levels	MS (HRMS) initially	6-12 (MS first)
+2734	Bangor Public Schools	ME	year_started	2002	2002 (by)
+2734	Bangor Public Schools	ME	month_started	Fall	September
+2734	Bangor Public Schools	ME	grade_levels	7th grade (2002); HS added 2009+	7-12 initially; expanded
+2734	Bangor Public Schools	ME	device_type	Laptop (Apple iBook; later Chromebook)	Laptop
+2736	Kettle Moraine School District	WI	year_started	2016 (by)	2020 (by)
+2736	Kettle Moraine School District	WI	one_to_one	Yes	Yes (phased)
+2736	Kettle Moraine School District	WI	grade_levels	6-12	5-12
+2737	Page Co Pblc Schs	VA	year_started	2017	2020 (by)
+2737	Page Co Pblc Schs	VA	month_started	August	
+2737	Page Co Pblc Schs	VA	one_to_one	Yes (phased)	Yes (likely)
+2737	Page Co Pblc Schs	VA	grade_levels	6-12	K-12
+2738	Tuloso-Midway ISD	TX	one_to_one		Partial
+2739	Twin Valley SD	PA	one_to_one	Yes	Yes (likely)
+2742	Katonah-Lewisboro Union Free School District	NY	month_started		September
+2742	Katonah-Lewisboro Union Free School District	NY	one_to_one	Yes (likely)	Yes
+2742	Katonah-Lewisboro Union Free School District	NY	device_type	Chromebook	Mixed (iPad/laptop)
+2743	Carteret Public Schools	NJ	one_to_one	Yes (phased)	Yes
+2743	Carteret Public Schools	NJ	grade_levels	5-12 (1:1 take-home); 1-4 (cart-based)	5-12 (take-home); 1-4 carts
+2745	Lebanon Community School Corp	IN	grade_levels	K-12	K-5 iPad; 6-12 MacBook Air
+2745	Lebanon Community School Corp	IN	device_type	iPad (K-5); MacBook Air (6-12)	Mixed (iPad/MacBook)
+2746	Zion ESD 6	IL	one_to_one	Yes	Yes (likely)
+2747	Libertyville SD 70	IL	device_type	Mixed (iPad/Chromebook)	Chromebook
+2749	Palo Verde Unified	CA	one_to_one	Yes (likely)	Yes
+2750	Greene Co. Tech School Dist.	AR	one_to_one	Yes (phased)	Yes (likely)
+2750	Greene Co. Tech School Dist.	AR	grade_levels	8-11 initially; expanding	K-12
+2751	Monroe County	AL	year_started	2020 (by)	
+2751	Monroe County	AL	one_to_one	Yes (likely)	
+2751	Monroe County	AL	grade_levels	K-12	
+2751	Monroe County	AL	device_type	Chromebook	
+2752	Marshfield Unified School District	WI	year_started	2016	
+2752	Marshfield Unified School District	WI	month_started	September	
+2752	Marshfield Unified School District	WI	one_to_one	Yes	
+2752	Marshfield Unified School District	WI	grade_levels	K-8 in 2016-17; 9-12 added 2017-18	
+2752	Marshfield Unified School District	WI	device_type	iPad	Chromebook
+2753	Burlington School District	VT	year_started	2020 (by)	2018 (by)
+2753	Burlington School District	VT	month_started		September
+2753	Burlington School District	VT	grade_levels	6-12 take-home; elementary in-class	6-12
+2754	Hardin County	TN	year_started	2020 (by)	
+2754	Hardin County	TN	one_to_one	Yes (likely)	
+2754	Hardin County	TN	grade_levels	K-12	
+2754	Hardin County	TN	device_type	Chromebook	
+2755	Nordonia Hills City	OH	year_started	2017	
+2755	Nordonia Hills City	OH	one_to_one	Yes (phased)	
+2755	Nordonia Hills City	OH	grade_levels	Started with select grades; 8th grade documented	
+2757	Canandaigua City School District	NY	year_started	2017	2018 (by)
+2757	Canandaigua City School District	NY	month_started	September	
+2757	Canandaigua City School District	NY	grade_levels	6-12 take-home; 1-5 in-class; K iPad	6-12
+2758	Township of Ocean Schools	NJ	grade_levels	2-12	K-12
+2759	Gretna Public Schools	NE	one_to_one	Yes (likely)	Yes
+2760	Sikeston R-6	MO	year_started	2020 (by)	
+2760	Sikeston R-6	MO	one_to_one	Yes (likely)	
+2760	Sikeston R-6	MO	grade_levels	K-12	
+2760	Sikeston R-6	MO	device_type	Chromebook	
+2761	Calhoun City	GA	year_started	2020	2020 (by)
+2761	Calhoun City	GA	one_to_one	Yes	Yes (likely)
+2762	Avon School District	CT	year_started	2024	2020 (by)
+2762	Avon School District	CT	month_started	September	
+2762	Avon School District	CT	grade_levels	Phase 1: gr 1-3 (2024-25); Phase 2: gr 1-6 (2025-26); Full K-12 by 2026-27	6-11
+2762	Avon School District	CT	device_type	Chromebook	Laptop
+2763	Port Angeles School District	WA	one_to_one	Yes (likely)	Yes
+2764	Bainbridge Island School District	WA	month_started	March	
+2764	Bainbridge Island School District	WA	one_to_one	Yes	Yes (phased)
+2764	Bainbridge Island School District	WA	grade_levels	5-12 take-home; K-4 in-class	5-12
+2765	Albert Gallatin Area SD	PA	year_started	2020 (by)	
+2765	Albert Gallatin Area SD	PA	one_to_one	Yes	
+2765	Albert Gallatin Area SD	PA	grade_levels	K-12	
+2765	Albert Gallatin Area SD	PA	device_type	Chromebook	
+2766	Mayfield City	OH	grade_levels	9-12 in 2017; 5-8 added 2018; 2-4 added 2020-21	5-12
+2767	Garfield Heights City Schools	OH	one_to_one	Yes (likely)	Yes
+2768	East Cleveland City School District	OH	year_started	2020 (by)	2020
+2768	East Cleveland City School District	OH	one_to_one	Yes (likely)	Yes
+2769	Cherokee County Schools	NC	one_to_one	Yes	Yes (phased)
+2770	Hyde Park Central School District	NY	grade_levels	4-12 take-home; K-3 in-class	K-12
+2771	Big Lake Public School District	MN	month_started	September	
+2774	Middleborough	MA	year_started	2020 (by)	2019 (by)
+2774	Middleborough	MA	one_to_one	Yes (likely)	Yes (phased)
+2774	Middleborough	MA	grade_levels	K-12	5-12
+2774	Middleborough	MA	device_type	Chromebook	Mixed (iPad/Chromebook)
+2777	Marion County	AL	year_started	2020 (by)	2021 (by)
+2777	Marion County	AL	one_to_one	Yes (likely)	Partial
+2778	Menasha Joint School District	WI	device_type	Mixed (Chromebook/laptop)	Chromebook
+2779	Stephenville ISD	TX	year_started	2017	2016
+2779	Stephenville ISD	TX	month_started	August	Fall
+2779	Stephenville ISD	TX	grade_levels	HS first (2017-18); phased expansion	K-12
+2780	Hickman County	TN	year_started	2020 (by)	
+2780	Hickman County	TN	one_to_one	Yes (likely)	
+2780	Hickman County	TN	grade_levels	K-12	
+2780	Hickman County	TN	device_type	Chromebook	
+2782	Rose Tree Media SD	PA	grade_levels	1-12 (Chromebook for MS/HS; iPad for elem)	1-12
+2782	Rose Tree Media SD	PA	device_type	Mixed (Chromebook/iPad)	Chromebook
+2785	Tenafly Public Schools	NJ	grade_levels	K-12	6-12
+2786	Picayune School Dist	MS	grade_levels	K-12 classroom sets	K-12
+2787	Auburn Public Schools	ME	month_started	September	Fall
+2787	Auburn Public Schools	ME	grade_levels	K in 2011; expanding each year through 2014	K-12
+2788	Plymouth Community School Corp	IN	one_to_one	Yes	Yes (likely)
+2789	Blaine County District	ID	one_to_one	Yes (likely)	Yes
+2790	Haralson County	GA	year_started	2020	2020 (by)
+2790	Haralson County	GA	month_started		August
+2790	Haralson County	GA	one_to_one	Yes (phased)	Yes
+2790	Haralson County	GA	grade_levels	3-12	9-12
+2791	Orinda Union Elementary	CA	one_to_one	Partial	Yes
+2791	Orinda Union Elementary	CA	grade_levels	4-5 at 1:1; K-3 at 2:1 iPad	K-8
+2791	Orinda Union Elementary	CA	device_type	Mixed (Chromebook/iPad)	Mixed
+2792	Lovejoy ISD	TX	year_started	2017	2020 (by)
+2792	Lovejoy ISD	TX	month_started	August	
+2792	Lovejoy ISD	TX	one_to_one	Yes (phased)	Yes
+2792	Lovejoy ISD	TX	grade_levels	HS first (2017-18); phased rollout	K-12
+2793	Overton County	TN	one_to_one	Yes (likely)	Yes
+2794	Radnor Township SD	PA	year_started	2011	2020 (by)
+2794	Radnor Township SD	PA	one_to_one	Yes (phased)	Yes
+2794	Radnor Township SD	PA	grade_levels	HS sophomores 2011; expanded to full K-12	K-12
+2795	Spencerport Central School District	NY	year_started	2026 (by)	
+2795	Spencerport Central School District	NY	one_to_one	Yes (likely)	
+2795	Spencerport Central School District	NY	grade_levels	K-12	
+2795	Spencerport Central School District	NY	device_type	Laptop	
+2796	Rockville Centre Union Free School District	NY	device_type	Chromebook	Mixed
+2797	North Tonawanda City School District	NY	one_to_one	Yes (likely)	Yes
+2798	Sparta Township Public Schools	NJ	year_started	2016	2020 (by)
+2798	Sparta Township Public Schools	NJ	month_started	September	
+2798	Sparta Township Public Schools	NJ	one_to_one	Yes (phased)	Yes
+2798	Sparta Township Public Schools	NJ	grade_levels	HS first 2016; expanded to lower grades	K-12
