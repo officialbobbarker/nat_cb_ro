@@ -59,9 +59,11 @@ accidental concurrent runs.
 
 ## Phase guidance (read every run, do not deviate)
 
-- **Default model for parallel research agents: `sonnet`.** Per Mike's
-  2026-05-05 head-to-head, Haiku quality is too low; Opus is overkill for
-  breadth.
+- **Default model for parallel research agents: `opus`.** Per Mike's
+  2026-05-09 update, usage-limit pressure has eased and the quality
+  delta on this work matters more than throughput. Sonnet is the
+  acceptable fallback if an Opus run is unavailable; Haiku quality is
+  too low and is not an option.
 - **Do NOT do Facebook profile-search work.** The current phase is
   breadth — get a web-search row populated for as many districts as
   possible. FB searches are a deferred second pass that Mike will trigger
