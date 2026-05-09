@@ -59,9 +59,11 @@ accidental concurrent runs.
 
 ## Phase guidance (read every run, do not deviate)
 
-- **Default model for parallel research agents: `sonnet`.** Per Mike's
-  2026-05-05 head-to-head, Haiku quality is too low; Opus is overkill for
-  breadth.
+- **Default model for parallel research agents: `opus`.** Per Mike's
+  2026-05-09 update, usage-limit pressure has eased and the quality
+  delta on this work matters more than throughput. Sonnet is the
+  acceptable fallback if an Opus run is unavailable; Haiku quality is
+  too low and is not an option.
 - **Do NOT do Facebook profile-search work.** The current phase is
   breadth — get a web-search row populated for as many districts as
   possible. FB searches are a deferred second pass that Mike will trigger
@@ -79,7 +81,19 @@ fb_search,leaid
 
 - `year_started` — 4-digit year, or `2020 (by)` / `2014 (by)` etc. for
   upper bound, or blank if no evidence at all.
+  - **Date convention**: If a specific implementation month is known
+    (e.g. "rolled out in January 2020", "distribution Aug 2019"), use
+    the calendar year of that month — January 2020 → `2020`, August
+    2019 → `2019`.
+  - If only a school year is known (e.g. "2019-20 1:1 launch", "rolled
+    out during the 2019-2020 school year"), use the year the school
+    year STARTED — `2019-20` → `2019`. Do NOT pick the spring half
+    unless a source explicitly says implementation happened in spring
+    (Jan-Jun) of that school year.
 - `month_started` — month name, `Spring` / `Fall`, or blank.
+  - Fill this in ONLY when the source names a specific month or
+    season for the rollout. Leave blank otherwise — do not guess from
+    a school year.
 - `one_to_one` — `Yes` / `Yes (phased)` / `Yes (likely)` / `Partial`.
 - `seda_rank` — INTEGER rank position (e.g., 701, 702...). NOT enrollment.
 - `seda_row_count` — the mean-grade-3 enrollment number from
@@ -390,7 +404,12 @@ device_type,notes,source_url,source_2,seda_rank,seda_row_count,web_search,
 fb_search,leaid
 
 - year_started: 4-digit year, or "2020 (by)" / "2014 (by)" for upper
-  bound, or blank.
+  bound, or blank. If a specific month is known, use that month's
+  calendar year. If only a school year is known (e.g. 2019-20), use
+  the START year (2019) — do not pick the spring half unless a
+  source explicitly says rollout was Jan-Jun.
+- month_started: only fill in when a source names a specific month or
+  season; leave blank otherwise.
 - one_to_one: Yes / Yes (phased) / Yes (likely) / Partial.
 - seda_rank: the assigned integer rank from the list above. NOT enrollment.
 - seda_row_count: the EXACT mean-grade-3 enrollment from the list.
