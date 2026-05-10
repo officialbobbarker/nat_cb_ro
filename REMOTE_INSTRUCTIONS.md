@@ -6,9 +6,9 @@ the prompt or any prior memory. Read this file in full, then act.
 
 ## Current state (update each run)
 
-**Last completed run:** ranks 2201–2500 (2026-05-08).
-**Next run starts at:** rank 2501 (CSV currently has 2500 data rows).
-**Branch tip:** `claude/dazzling-maxwell-YAEvS` is fully pushed; main push
+**Last completed run:** ranks 2801–3100 (2026-05-10).
+**Next run starts at:** rank 3101 (CSV currently has 3100 data rows).
+**Branch tip:** `claude/dazzling-maxwell-Dsqeg` is fully pushed; main push
 was blocked by branch protection (403). Next client: if `git push origin main`
 fails, see the fallback note in Step 9d below.
 
